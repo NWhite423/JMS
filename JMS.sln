@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Job Management Software", "Job Management Software\Job Management Software.csproj", "{CF979644-93A4-490C-B2AB-51C02035C14A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JMS", "Job Management Software\JMS.csproj", "{CF979644-93A4-490C-B2AB-51C02035C14A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobCreationTool", "JobCreationTool\JobCreationTool.csproj", "{6F188BB6-D488-4591-91B6-4B89F6F973AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JMSFunctions", "JMSFunctions\JMSFunctions.csproj", "{E80EA6CA-8207-41F2-8FA6-3754FC9DF628}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{CF979644-93A4-490C-B2AB-51C02035C14A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF979644-93A4-490C-B2AB-51C02035C14A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF979644-93A4-490C-B2AB-51C02035C14A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F188BB6-D488-4591-91B6-4B89F6F973AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F188BB6-D488-4591-91B6-4B89F6F973AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F188BB6-D488-4591-91B6-4B89F6F973AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F188BB6-D488-4591-91B6-4B89F6F973AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E80EA6CA-8207-41F2-8FA6-3754FC9DF628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E80EA6CA-8207-41F2-8FA6-3754FC9DF628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E80EA6CA-8207-41F2-8FA6-3754FC9DF628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E80EA6CA-8207-41F2-8FA6-3754FC9DF628}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
