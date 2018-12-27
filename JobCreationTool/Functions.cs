@@ -37,10 +37,8 @@ namespace JobCreationTool
         //Updated 12-22-18
         public static void CreateJobNumber(LandingForm form)
         {
-            LandingForm Main = Variables.LandingForm;
-            string jobNumberString = "";
             bool numberFinished = false;
-            string workDir = Properties.Settings.Default.WorkDir;
+            string workDir = Variables.WorkDir;
 
             while (!numberFinished)
             {

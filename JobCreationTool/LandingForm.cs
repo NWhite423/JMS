@@ -33,13 +33,14 @@ namespace JobCreationTool
         {
             try
             {
-                if (Properties.Settings.Default.WorkDir.Equals(""))
+                if (JMS.Variables.WorkDir.Equals(""))
                 {
+                    MessageBox.Show("The specified directory does not exist.\n\n" + Properties.Settings.Default.WorkDir);
                     Application.Exit();
                 }
 
                 Customers = new List<Customer> { };
-                Variables.WorkDir = Properties.Settings.Default.WorkDir;
+                Variables.WorkDir = JMS.Variables.WorkDir;
                 Variables.SubDir = Properties.Settings.Default.SubDir.Cast<string>().ToList();
                 Functions.CreateJobNumber(this);
                 var employeesList = JMS.Variables.Employees;
