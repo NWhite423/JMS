@@ -63,7 +63,7 @@
             this.LBJobs.Location = new System.Drawing.Point(16, 120);
             this.LBJobs.Margin = new System.Windows.Forms.Padding(4);
             this.LBJobs.Name = "LBJobs";
-            this.LBJobs.Size = new System.Drawing.Size(317, 466);
+            this.LBJobs.Size = new System.Drawing.Size(261, 498);
             this.LBJobs.Sorted = true;
             this.LBJobs.TabIndex = 0;
             this.LBJobs.SelectedIndexChanged += new System.EventHandler(this.LBJobs_SelectedIndexChanged);
@@ -74,7 +74,7 @@
             this.CmbDirectories.Location = new System.Drawing.Point(16, 36);
             this.CmbDirectories.Margin = new System.Windows.Forms.Padding(4);
             this.CmbDirectories.Name = "CmbDirectories";
-            this.CmbDirectories.Size = new System.Drawing.Size(317, 24);
+            this.CmbDirectories.Size = new System.Drawing.Size(261, 24);
             this.CmbDirectories.TabIndex = 1;
             this.CmbDirectories.SelectedIndexChanged += new System.EventHandler(this.CmbDirectories_SelectedIndexChanged);
             // 
@@ -84,12 +84,12 @@
             this.TxtSearchResults.Location = new System.Drawing.Point(16, 88);
             this.TxtSearchResults.Margin = new System.Windows.Forms.Padding(4);
             this.TxtSearchResults.Name = "TxtSearchResults";
-            this.TxtSearchResults.Size = new System.Drawing.Size(239, 23);
+            this.TxtSearchResults.Size = new System.Drawing.Size(182, 23);
             this.TxtSearchResults.TabIndex = 2;
             // 
             // CmdFilter
             // 
-            this.CmdFilter.Location = new System.Drawing.Point(275, 88);
+            this.CmdFilter.Location = new System.Drawing.Point(217, 87);
             this.CmdFilter.Margin = new System.Windows.Forms.Padding(4);
             this.CmdFilter.Name = "CmdFilter";
             this.CmdFilter.Size = new System.Drawing.Size(60, 24);
@@ -109,7 +109,7 @@
             this.MS.Location = new System.Drawing.Point(0, 0);
             this.MS.Name = "MS";
             this.MS.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.MS.Size = new System.Drawing.Size(1456, 24);
+            this.MS.Size = new System.Drawing.Size(1375, 24);
             this.MS.TabIndex = 4;
             this.MS.Text = "menuStrip1";
             // 
@@ -224,9 +224,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MainPanel.AutoScroll = true;
             this.MainPanel.AutoScrollMinSize = new System.Drawing.Size(1061, 640);
-            this.MainPanel.Location = new System.Drawing.Point(342, 36);
+            this.MainPanel.Location = new System.Drawing.Point(284, 36);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1102, 582);
+            this.MainPanel.Size = new System.Drawing.Size(1079, 582);
             this.MainPanel.TabIndex = 5;
             // 
             // CBMonth
@@ -249,13 +249,13 @@
             this.CBMonth.Location = new System.Drawing.Point(16, 62);
             this.CBMonth.Margin = new System.Windows.Forms.Padding(4);
             this.CBMonth.Name = "CBMonth";
-            this.CBMonth.Size = new System.Drawing.Size(317, 24);
+            this.CBMonth.Size = new System.Drawing.Size(261, 24);
             this.CBMonth.TabIndex = 6;
             this.CBMonth.SelectedIndexChanged += new System.EventHandler(this.CBMonth_SelectedIndexChanged);
             // 
             // CmdSearchClear
             // 
-            this.CmdSearchClear.Location = new System.Drawing.Point(255, 88);
+            this.CmdSearchClear.Location = new System.Drawing.Point(197, 87);
             this.CmdSearchClear.Margin = new System.Windows.Forms.Padding(4);
             this.CmdSearchClear.Name = "CmdSearchClear";
             this.CmdSearchClear.Size = new System.Drawing.Size(22, 24);
@@ -268,7 +268,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1456, 626);
+            this.ClientSize = new System.Drawing.Size(1375, 626);
             this.Controls.Add(this.CmdSearchClear);
             this.Controls.Add(this.CBMonth);
             this.Controls.Add(this.MainPanel);
@@ -280,11 +280,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.MS;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1472, 665);
+            this.MinimumSize = new System.Drawing.Size(1364, 665);
             this.Name = "MainForm";
             this.Text = "JMS";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.MS.ResumeLayout(false);
             this.MS.PerformLayout();
             this.ResumeLayout(false);

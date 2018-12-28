@@ -14,6 +14,8 @@ using System.Xml.Linq;
 using JMS.UC;
 using JMSFunctions;
 using JobCreationTool;
+using System.DirectoryServices;
+using System.Net;
 
 namespace JMS
 {
@@ -23,7 +25,50 @@ namespace JMS
         {
             InitializeComponent();
         }
-        
+
+        private delegate void CloseDelegate();
+
+        static public void StartLoading()
+        {
+            // Make sure it is only launched once.
+            Thread thread = new Thread(new ThreadStart(LoadVariables));
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        static private void LoadVariables()
+        {
+            string pathMaster = Variables.WorkDir;
+            List<string> directories = Functions.GrabDirectories(pathMaster, "index.txt");
+            Variables.AllIndexes = directories;
+            List<List<Job>> allJobs = new List<List<Job>> { };
+            for (int i = 0; i < directories.Count; i++)
+            {
+                Thread.Sleep(10);
+                string dir = pathMaster + @"\" + directories[i];
+                Debug.WriteLine("Directory: " + dir);
+                string header = String.Format("Phase {0} of {1}: {2}", i + 1, directories.Count, Functions.GrabDirectoryName(dir));
+                List<Job> jobs = new List<Job> { };
+                List<string> jobindex = File.ReadAllLines(dir + @"\index.txt").ToList();
+                int size = jobindex.Count;
+                for (int j = 0; j < size; j++)
+                {
+                    Thread.Sleep(10);
+                    string[] jobInfo = jobindex[j].Split(';');
+                    Debug.WriteLine("Job: " + jobInfo[0]);
+                    Job job = new Job();
+
+                    //Grab information
+                    job = XML.CompileJob(jobInfo[1]);
+                    Debug.WriteLine("compiled " + job.Name);
+                    jobs.Add(job);
+                }
+                allJobs.Add(jobs);
+            }
+            Variables.AllJobs = allJobs;
+            IntVariables.LoadingDone = true;
+        }
+
         //Updated 12-22-18
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -56,19 +101,36 @@ namespace JMS
                 JMSFunctions.AppSettings.Default.Save();
             }
 
-            MessageBox.Show("This software is in development and is likely to change. Anything you see may be modified, added to, or removed.\n\nCurrent Version: 0.7.2", "Beta Build");
+            MessageBox.Show("This software is in development and is likely to change. Anything you see may be modified, added to, or removed.\n\nCurrent Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(), "Beta Build");
 
             // define what 'MainForm' is and initialize misc variables
             IntVariables.MainForm = this;
             IntFunctions.InitializeVariables();
-            
-            //Begin loading screen
-            LoadingScreen screen = new LoadingScreen();
 
-            if (!screen.ShowDialog().Equals(DialogResult.OK))
+            LoadingScreen screen = new LoadingScreen();
+            screen.Show();
+            screen.BringToFront();
+
+            //Begin loading screen
+            StartLoading();
+
+            while (!IntVariables.LoadingDone)
             {
-                MessageBox.Show("There was an error compiling the jobs. Good luck fixing this shit.", "ERROR");
-                return;
+                Thread.Sleep(25);
+            }
+
+            screen.Close();
+
+            string strHostName = string.Empty;
+            strHostName = Dns.GetHostName();
+
+            IPHostEntry ipEntry = Dns.GetHostByName(strHostName);
+            IPAddress[] iparrAddr = ipEntry.AddressList;
+
+            if (iparrAddr.Length > 0)
+            {
+                for (int intLoop = 0; intLoop < iparrAddr.Length; intLoop++)
+                    Debug.WriteLine(iparrAddr[intLoop].ToString());
             }
 
             //Populate year filter with all years avaiable.
@@ -261,6 +323,11 @@ namespace JMS
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            LBJobs.Size = new Size(LBJobs.Width, this.Height - 167);
         }
     }
 }

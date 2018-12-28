@@ -10,6 +10,7 @@ using System.Xml.Linq;
 using JMSFunctions;
 using System.ComponentModel;
 using System.Drawing;
+using System.Threading;
 
 namespace JMS
 {
@@ -147,7 +148,7 @@ namespace JMS
             }
             return null;
         }
-
+       
         //Updated 12-22-18 - has catch
         public static void InitializeVariables()
         {
@@ -158,6 +159,7 @@ namespace JMS
                 Variables.DevMode = JMSFunctions.AppSettings.Default.DevMode;
 
                 IntVariables.JobEditing = false;
+                IntVariables.LoadingDone = false;
 
                 Variables.Employees = XML.CompileEmployees(Variables.WorkDir + @"\JMS\employees.xml").OrderBy(o => o.Name).ToList();
                 Variables.Customers = XML.CompileCustomers(Variables.WorkDir + @"\JMS\customers.xml").OrderBy(o => o.Name).ToList();
