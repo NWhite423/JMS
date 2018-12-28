@@ -135,9 +135,10 @@ namespace JMS
         {
             //No jobs were loaded, would throw an error.
             Variables.JobList.Items.Clear();
-            foreach (Job jobI in Variables.Jobs)
+            foreach (Job jobI in jobs)
             {
                 Variables.JobList.Items.Add(jobI.Name);
+                Debug.WriteLine("adding job to list: " + jobI.Name);
             }
         }
 

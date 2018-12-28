@@ -41,12 +41,12 @@
             this.CBDateDue = new System.Windows.Forms.CheckBox();
             this.CBCustomer = new System.Windows.Forms.CheckBox();
             this.TxtCustomer = new System.Windows.Forms.TextBox();
-            this.TxtEmployees = new System.Windows.Forms.TextBox();
             this.CBWorkedOn = new System.Windows.Forms.CheckBox();
             this.CBExactMatch = new System.Windows.Forms.CheckBox();
             this.CmdExecute = new System.Windows.Forms.Button();
             this.RBMatchAny = new System.Windows.Forms.RadioButton();
             this.RBMatchAll = new System.Windows.Forms.RadioButton();
+            this.CBWorkers = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // TxtName
@@ -164,14 +164,6 @@
             this.TxtCustomer.Size = new System.Drawing.Size(432, 23);
             this.TxtCustomer.TabIndex = 15;
             // 
-            // TxtEmployees
-            // 
-            this.TxtEmployees.Enabled = false;
-            this.TxtEmployees.Location = new System.Drawing.Point(118, 172);
-            this.TxtEmployees.Name = "TxtEmployees";
-            this.TxtEmployees.Size = new System.Drawing.Size(384, 23);
-            this.TxtEmployees.TabIndex = 17;
-            // 
             // CBWorkedOn
             // 
             this.CBWorkedOn.AutoSize = true;
@@ -226,16 +218,25 @@
             this.RBMatchAll.Text = "Match all conditions";
             this.RBMatchAll.UseVisualStyleBackColor = true;
             // 
+            // CBWorkers
+            // 
+            this.CBWorkers.Enabled = false;
+            this.CBWorkers.FormattingEnabled = true;
+            this.CBWorkers.Location = new System.Drawing.Point(118, 170);
+            this.CBWorkers.Name = "CBWorkers";
+            this.CBWorkers.Size = new System.Drawing.Size(384, 24);
+            this.CBWorkers.TabIndex = 24;
+            // 
             // SearchWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 306);
+            this.Controls.Add(this.CBWorkers);
             this.Controls.Add(this.RBMatchAll);
             this.Controls.Add(this.RBMatchAny);
             this.Controls.Add(this.CmdExecute);
             this.Controls.Add(this.CBExactMatch);
-            this.Controls.Add(this.TxtEmployees);
             this.Controls.Add(this.CBWorkedOn);
             this.Controls.Add(this.TxtCustomer);
             this.Controls.Add(this.CBCustomer);
@@ -277,11 +278,11 @@
         private System.Windows.Forms.CheckBox CBDateDue;
         private System.Windows.Forms.CheckBox CBCustomer;
         private System.Windows.Forms.TextBox TxtCustomer;
-        private System.Windows.Forms.TextBox TxtEmployees;
         private System.Windows.Forms.CheckBox CBWorkedOn;
         private System.Windows.Forms.CheckBox CBExactMatch;
         private System.Windows.Forms.Button CmdExecute;
         private System.Windows.Forms.RadioButton RBMatchAny;
         private System.Windows.Forms.RadioButton RBMatchAll;
+        private System.Windows.Forms.ComboBox CBWorkers;
     }
 }

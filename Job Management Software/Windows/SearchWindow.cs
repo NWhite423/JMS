@@ -19,6 +19,8 @@ namespace JMS
             InitializeComponent();
         }
 
+        public List<Job> FilteredJobs { get; set; }
+
         private void SearchWindow_Load(object sender, EventArgs e)
         {
             DateTimeFrom.Value = DateTime.Now;
@@ -142,9 +144,10 @@ namespace JMS
                 combined = combined.Union(dueDateSerch);
                 combined = combined.Union(customerSerch);
                 combined = combined.Union(employeeSerch);
-                Variables.Jobs = combined.ToList();
+                FilteredJobs = combined.ToList();
+                Debug.WriteLine("Job count: " + FilteredJobs.Count);
             }
-
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

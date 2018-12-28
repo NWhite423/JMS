@@ -18,7 +18,5 @@ namespace JobCreationTool
         public static string JobNumber;
         public static string WorkDir;
         public static List<string> SubDir;
-
-        public static BindingList<POC> POCs;
     }
 }

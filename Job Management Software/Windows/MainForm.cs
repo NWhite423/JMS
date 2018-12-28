@@ -55,6 +55,8 @@ namespace JMS
                 JMSFunctions.AppSettings.Default.Save();
             }
 
+            MessageBox.Show("This software is in development and is likely to change. Anything you see may be modified, added to, or removed.\n\nCurrent Version: 0.7.2", "Beta Build");
+
             // define what 'MainForm' is and initialize misc variables
             IntVariables.MainForm = this;
             IntFunctions.InitializeVariables();
@@ -217,7 +219,12 @@ namespace JMS
         private void CmdFilter_Click(object sender, EventArgs e)
         {
             SearchWindow window = new SearchWindow();
-            window.Show();
+            DialogResult result = window.ShowDialog();
+            if (result.Equals(DialogResult.OK))
+            {
+                Functions.PopulateJobList(window.FilteredJobs);
+                Variables.Jobs = window.FilteredJobs;
+            }
         }
 
         //Updated 12-22-18

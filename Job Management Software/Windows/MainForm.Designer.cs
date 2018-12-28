@@ -35,6 +35,8 @@
             this.MS = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.makeASuggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,14 +44,12 @@
             this.deadlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.databasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testEMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.CBMonth = new System.Windows.Forms.ComboBox();
             this.CmdSearchClear = new System.Windows.Forms.Button();
-            this.databasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.makeASuggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@
             this.LBJobs.Location = new System.Drawing.Point(16, 120);
             this.LBJobs.Margin = new System.Windows.Forms.Padding(4);
             this.LBJobs.Name = "LBJobs";
-            this.LBJobs.Size = new System.Drawing.Size(317, 498);
+            this.LBJobs.Size = new System.Drawing.Size(317, 466);
             this.LBJobs.Sorted = true;
             this.LBJobs.TabIndex = 0;
             this.LBJobs.SelectedIndexChanged += new System.EventHandler(this.LBJobs_SelectedIndexChanged);
@@ -109,7 +109,7 @@
             this.MS.Location = new System.Drawing.Point(0, 0);
             this.MS.Name = "MS";
             this.MS.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.MS.Size = new System.Drawing.Size(1273, 24);
+            this.MS.Size = new System.Drawing.Size(1456, 24);
             this.MS.TabIndex = 4;
             this.MS.Text = "menuStrip1";
             // 
@@ -126,9 +126,22 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
+            // 
+            // makeASuggestionToolStripMenuItem
+            // 
+            this.makeASuggestionToolStripMenuItem.Name = "makeASuggestionToolStripMenuItem";
+            this.makeASuggestionToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.makeASuggestionToolStripMenuItem.Text = "Make a Suggestion";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
@@ -183,6 +196,12 @@
             this.customToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.customToolStripMenuItem.Text = "Custom";
             // 
+            // databasesToolStripMenuItem
+            // 
+            this.databasesToolStripMenuItem.Name = "databasesToolStripMenuItem";
+            this.databasesToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.databasesToolStripMenuItem.Text = "Databases";
+            // 
             // testingToolStripMenuItem
             // 
             this.testingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -194,7 +213,7 @@
             // testEMailToolStripMenuItem
             // 
             this.testEMailToolStripMenuItem.Name = "testEMailToolStripMenuItem";
-            this.testEMailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testEMailToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.testEMailToolStripMenuItem.Text = "Test E-Mail";
             this.testEMailToolStripMenuItem.Click += new System.EventHandler(this.TestEMailToolStripMenuItem_Click);
             // 
@@ -207,7 +226,7 @@
             this.MainPanel.AutoScrollMinSize = new System.Drawing.Size(1061, 640);
             this.MainPanel.Location = new System.Drawing.Point(342, 36);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(919, 582);
+            this.MainPanel.Size = new System.Drawing.Size(1102, 582);
             this.MainPanel.TabIndex = 5;
             // 
             // CBMonth
@@ -245,30 +264,11 @@
             this.CmdSearchClear.UseVisualStyleBackColor = true;
             this.CmdSearchClear.Click += new System.EventHandler(this.CmdSearchClear_Click);
             // 
-            // databasesToolStripMenuItem
-            // 
-            this.databasesToolStripMenuItem.Name = "databasesToolStripMenuItem";
-            this.databasesToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.databasesToolStripMenuItem.Text = "Databases";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
-            // 
-            // makeASuggestionToolStripMenuItem
-            // 
-            this.makeASuggestionToolStripMenuItem.Name = "makeASuggestionToolStripMenuItem";
-            this.makeASuggestionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.makeASuggestionToolStripMenuItem.Text = "Make a Suggestion";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1273, 626);
+            this.ClientSize = new System.Drawing.Size(1456, 626);
             this.Controls.Add(this.CmdSearchClear);
             this.Controls.Add(this.CBMonth);
             this.Controls.Add(this.MainPanel);
@@ -280,6 +280,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.MS;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1472, 665);
             this.Name = "MainForm";
             this.Text = "JMS";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;

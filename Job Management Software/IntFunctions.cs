@@ -195,16 +195,16 @@ namespace JMS
                 {
                     foreach (Job job in jobsAll)
                     {
-                        filter = jobsAll.Where(n => n.Name.Contains(monthIndex.ToString("00"))).ToList();
+                        filter = jobsAll.Where(n => n.Name.Contains(monthIndex.ToString("00") + "-")).ToList();
                     }
                 }
                 else
                 {
                     filter = jobsAll;
                 }
-
+                Debug.WriteLine("Job count: " + filter.Count);
                 Variables.Jobs = filter;
-                Functions.PopulateJobList(Variables.Jobs);
+                Functions.PopulateJobList(filter);
                 string[] path = { Variables.WorkDir, Variables.AllIndexes[index] };
                 Variables.CurrentDir = Path.Combine(path);
             }
