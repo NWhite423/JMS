@@ -26,6 +26,10 @@ namespace JMS
             DateTimeFrom.Value = DateTime.Now;
             DateTimeTo.Value = DateTime.Now;
             DateTimeDue.Value = DateTime.Now;
+            foreach (Employee employee in Variables.Employees)
+            {
+                CBWorkers.Items.Add(employee.Name);
+            }
         }
 
         private void CmdExecute_Click(object sender, EventArgs e)
@@ -71,31 +75,22 @@ namespace JMS
                 }
             }
 
-            /*if (CBDateRange.Checked)
+            if (CBDateRange.Checked)
             {
                 filtersApplied++;
-                if (CBExactMatch.Checked)
-                {
-                    dateSearch = resultstream.Where(job => job.Name.Equals(TxtName.Text)).ToList();
-                }
-                else
-                {
-                    dateSearch = resultstream.Where(job => job.Name.Contains(TxtName.Text)).ToList();
-                }
-            }*/
+                DateTime beginDate = DateTimeFrom.Value.Date;
+                DateTime endDate = DateTimeTo.Value.Date;
 
-            /*if (CBDateDue.Checked)
+                dateSearch = resultstream.Where(job => DateTime.Parse(job.DateCreated) <= endDate && DateTime.Parse(job.DateCreated) >= beginDate).ToList();
+            }
+
+            if (CBDateDue.Checked)
             {
                 filtersApplied++;
-                if (CBExactMatch.Checked)
-                {
-                    dueDateSerch = resultstream.Where(job => job.Name.Equals(TxtName.Text)).ToList();
-                }
-                else
-                {
-                    dueDateSerch = resultstream.Where(job => job.Name.Contains(TxtName.Text)).ToList();
-                }
-            }*/
+                DateTime limit = DateTimeDue.Value.Date;
+
+                dueDateSerch = resultstream.Where(job => job.DueDate <= limit && (job.Status != "COMPLETE" || job.Status != "CANCELLED")).ToList();
+            }
 
             /*if (CBCustomer.Checked)
             {
@@ -110,18 +105,13 @@ namespace JMS
                 }
             }*/
 
-            /*if (CBWorkedOn.Checked)
+            if (CBWorkedOn.Checked)
             {
                 filtersApplied++;
-                if (CBExactMatch.Checked)
-                {
-                    employeeSerch = resultstream.Where(job => job.Name.Equals(TxtName.Text)).ToList();
-                }
-                else
-                {
-                    employeeSerch = resultstream.Where(job => job.Name.Contains(TxtName.Text)).ToList();
-                }
-            }*/
+                string name = CBWorkers.GetItemText(CBWorkers.SelectedItem);
+
+                employeeSerch = resultstream.Where(job => job.Employees.Any(person => person.Name == name)).ToList();
+            }
 
             if (filtersApplied.Equals(0))
             {

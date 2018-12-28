@@ -158,7 +158,6 @@
             // 
             // TxtCustomer
             // 
-            this.TxtCustomer.Enabled = false;
             this.TxtCustomer.Location = new System.Drawing.Point(70, 143);
             this.TxtCustomer.Name = "TxtCustomer";
             this.TxtCustomer.Size = new System.Drawing.Size(432, 23);
@@ -167,7 +166,6 @@
             // CBWorkedOn
             // 
             this.CBWorkedOn.AutoSize = true;
-            this.CBWorkedOn.Enabled = false;
             this.CBWorkedOn.Location = new System.Drawing.Point(12, 172);
             this.CBWorkedOn.Name = "CBWorkedOn";
             this.CBWorkedOn.Size = new System.Drawing.Size(100, 21);
@@ -220,7 +218,6 @@
             // 
             // CBWorkers
             // 
-            this.CBWorkers.Enabled = false;
             this.CBWorkers.FormattingEnabled = true;
             this.CBWorkers.Location = new System.Drawing.Point(118, 170);
             this.CBWorkers.Name = "CBWorkers";
