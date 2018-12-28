@@ -60,7 +60,7 @@
     <StartupObject>JobCreationTool.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>153A3FD9602D0B720838847FCAF234BBA7512AE8</ManifestCertificateThumbprint>

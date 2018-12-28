@@ -191,7 +191,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="folder_2935510_960_720_ZIQ_icon.ico" />
+    <Content Include="folder_2935510_960_720_ZIQ_icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

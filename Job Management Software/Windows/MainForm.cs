@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -63,8 +64,7 @@ namespace JMS
             
             //Begin loading screen
             LoadingScreen screen = new LoadingScreen();
-            
-            //Wait until dialog is finished.
+
             if (!screen.ShowDialog().Equals(DialogResult.OK))
             {
                 MessageBox.Show("There was an error compiling the jobs. Good luck fixing this shit.", "ERROR");
