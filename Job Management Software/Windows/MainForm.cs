@@ -33,6 +33,7 @@ namespace JMS
                 {
                     MessageBox.Show("No path was selected. Exiting.", "ERROR");
                     Application.Exit();
+                    return;
                 }
                 JMSFunctions.AppSettings.Default.WorkDir = folder.SelectedPath;
                 JMSFunctions.AppSettings.Default.Save();
@@ -46,6 +47,7 @@ namespace JMS
                 {
                     MessageBox.Show("An invalid name was entered. Exiting.", "ERROR");
                     Application.Exit();
+                    return;
                 }
                 JMSFunctions.AppSettings.Default.UserName = response;
                 JMSFunctions.AppSettings.Default.Save();
