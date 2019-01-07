@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using JMS.UC;
 using JMSFunctions;
 using JobCreationTool;
@@ -46,7 +41,7 @@ namespace JMS
             //Determine if a name is setup for the local account
             if (JMSFunctions.AppSettings.Default.UserName.Equals(""))
             {
-                string response = Microsoft.VisualBasic.Interaction.InputBox("Please enter your name. This name will appear on the logs and other documentation.", "Enter your name");
+                string response = StringEntry.ShowDialog("Please enter your name.", "Enter your Name");
                 if (response.Equals(""))
                 {
                     MessageBox.Show("An invalid name was entered. Exiting.", "ERROR");
@@ -55,8 +50,10 @@ namespace JMS
                 JMSFunctions.AppSettings.Default.UserName = response;
                 JMSFunctions.AppSettings.Default.Save();
             }
-
-            MessageBox.Show("This software is in development and is likely to change. Anything you see may be modified, added to, or removed.\n\nCurrent Version: 0.7.2", "Beta Build");
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string version = fvi.FileVersion;
+            MessageBox.Show("This software is in development and is likely to change. Anything you see may be modified, added to, or removed.\n\nCurrent Version: " + version, "Beta Build");
 
             // define what 'MainForm' is and initialize misc variables
             IntVariables.MainForm = this;
@@ -165,21 +162,8 @@ namespace JMS
             Debug.WriteLine("Job index: " + LBJobs.SelectedIndex);
             Variables.JobTransition = true;
             string searchItem = LBJobs.GetItemText(LBJobs.SelectedItem);
-            Job job = null;
-            foreach (Job jobsearch in Variables.Jobs)
-            {
-                if (jobsearch.Name.Equals(searchItem))
-                {
-                    job = jobsearch;
-                }
-            }
-
-            if (job.Equals(null))
-            {
-                MessageBox.Show("No job was found by that name.", "ERROR");
-                return;
-            }
-
+            Job job = Variables.Jobs.First(n => n.Name == searchItem);
+            
             MainWindow window = new MainWindow();
 
             if (MainPanel.Controls.Count > 0)
@@ -224,14 +208,17 @@ namespace JMS
             {
                 Functions.PopulateJobList(window.FilteredJobs);
                 Variables.Jobs = window.FilteredJobs;
+                Variables.FilteredList = true;
             }
         }
 
         //Updated 12-22-18
         private void CmdSearchClear_Click(object sender, EventArgs e)
         {
+            TxtSearchResults.Text = "";
+            CBMonth.SelectedIndex = 0;
+            Variables.FilteredList = false;
             IntFunctions.PopulateJobList(CmbDirectories.SelectedIndex, CBMonth.SelectedIndex);
-            TxtSearchResults.Text = string.Empty;
         }
 
         //Updated 12-22-18
@@ -248,19 +235,41 @@ namespace JMS
 
         private void TestEMailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var st = new StackTrace();
+            /*var st = new StackTrace();
             var sf = st.GetFrame(0);
             var currentMethod = sf.GetMethod();
             NotImplementedException exception = new NotImplementedException
             {
                 Source = currentMethod.ToString()
             };
-            Functions.ProduceErrorReport(exception);
+            Functions.ProduceErrorReport(exception);*/
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        
+        private void CustomersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomerManager cm = new CustomerManager();
+            DialogResult result = cm.ShowDialog();
+            if (result.Equals(DialogResult.OK))
+            {
+                XML.SaveCustomers(cm.Customers, Variables.WorkDir + @"\JMS\customers.xml");
+                Variables.Customers = XML.CompileCustomers(Variables.WorkDir + @"\JMS\customers.xml").OrderBy(o => o.Name).ToList();
+            }
+        }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            LBJobs.Size = new Size(LBJobs.Width, this.Height - 167);
+        }
+
+        private void RefreshJobsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            XML.RecompileJobs();
+            IntFunctions.PopulateJobList(CmbDirectories.SelectedIndex, CBMonth.SelectedIndex);
         }
     }
 }

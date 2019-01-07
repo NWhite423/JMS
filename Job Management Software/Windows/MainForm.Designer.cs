@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.LBJobs = new System.Windows.Forms.ListBox();
             this.CmbDirectories = new System.Windows.Forms.ComboBox();
             this.TxtSearchResults = new System.Windows.Forms.TextBox();
@@ -39,17 +40,21 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.databasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deadlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.databasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testEMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.CBMonth = new System.Windows.Forms.ComboBox();
             this.CmdSearchClear = new System.Windows.Forms.Button();
+            this.refreshJobsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.MS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,13 +68,14 @@
             this.LBJobs.Location = new System.Drawing.Point(16, 120);
             this.LBJobs.Margin = new System.Windows.Forms.Padding(4);
             this.LBJobs.Name = "LBJobs";
-            this.LBJobs.Size = new System.Drawing.Size(317, 466);
+            this.LBJobs.Size = new System.Drawing.Size(317, 498);
             this.LBJobs.Sorted = true;
             this.LBJobs.TabIndex = 0;
             this.LBJobs.SelectedIndexChanged += new System.EventHandler(this.LBJobs_SelectedIndexChanged);
             // 
             // CmbDirectories
             // 
+            this.CmbDirectories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDirectories.FormattingEnabled = true;
             this.CmbDirectories.Location = new System.Drawing.Point(16, 36);
             this.CmbDirectories.Margin = new System.Windows.Forms.Padding(4);
@@ -103,8 +109,8 @@
             this.MS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.newToolStripMenuItem,
-            this.reportsToolStripMenuItem,
             this.databasesToolStripMenuItem,
+            this.reportsToolStripMenuItem,
             this.testingToolStripMenuItem});
             this.MS.Location = new System.Drawing.Point(0, 0);
             this.MS.Name = "MS";
@@ -117,6 +123,8 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem,
+            this.refreshJobsToolStripMenuItem,
+            this.toolStripSeparator1,
             this.makeASuggestionToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -126,20 +134,20 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
             // 
             // makeASuggestionToolStripMenuItem
             // 
             this.makeASuggestionToolStripMenuItem.Name = "makeASuggestionToolStripMenuItem";
-            this.makeASuggestionToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.makeASuggestionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.makeASuggestionToolStripMenuItem.Text = "Make a Suggestion";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -159,6 +167,28 @@
             this.jobToolStripMenuItem.Text = "Job";
             this.jobToolStripMenuItem.Click += new System.EventHandler(this.JobToolStripMenuItem_Click);
             // 
+            // databasesToolStripMenuItem
+            // 
+            this.databasesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.customersToolStripMenuItem,
+            this.employeesToolStripMenuItem});
+            this.databasesToolStripMenuItem.Name = "databasesToolStripMenuItem";
+            this.databasesToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.databasesToolStripMenuItem.Text = "Databases";
+            // 
+            // customersToolStripMenuItem
+            // 
+            this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.customersToolStripMenuItem.Text = "Customers";
+            this.customersToolStripMenuItem.Click += new System.EventHandler(this.CustomersToolStripMenuItem_Click);
+            // 
+            // employeesToolStripMenuItem
+            // 
+            this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
+            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.employeesToolStripMenuItem.Text = "Employees";
+            // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -169,6 +199,7 @@
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
+            this.reportsToolStripMenuItem.Visible = false;
             // 
             // salesToolStripMenuItem
             // 
@@ -196,12 +227,6 @@
             this.customToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.customToolStripMenuItem.Text = "Custom";
             // 
-            // databasesToolStripMenuItem
-            // 
-            this.databasesToolStripMenuItem.Name = "databasesToolStripMenuItem";
-            this.databasesToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.databasesToolStripMenuItem.Text = "Databases";
-            // 
             // testingToolStripMenuItem
             // 
             this.testingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -209,6 +234,7 @@
             this.testingToolStripMenuItem.Name = "testingToolStripMenuItem";
             this.testingToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.testingToolStripMenuItem.Text = "Testing";
+            this.testingToolStripMenuItem.Visible = false;
             // 
             // testEMailToolStripMenuItem
             // 
@@ -231,6 +257,7 @@
             // 
             // CBMonth
             // 
+            this.CBMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBMonth.FormattingEnabled = true;
             this.CBMonth.Items.AddRange(new object[] {
             "All",
@@ -264,6 +291,18 @@
             this.CmdSearchClear.UseVisualStyleBackColor = true;
             this.CmdSearchClear.Click += new System.EventHandler(this.CmdSearchClear_Click);
             // 
+            // refreshJobsToolStripMenuItem
+            // 
+            this.refreshJobsToolStripMenuItem.Name = "refreshJobsToolStripMenuItem";
+            this.refreshJobsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshJobsToolStripMenuItem.Text = "Refresh Jobs";
+            this.refreshJobsToolStripMenuItem.Click += new System.EventHandler(this.RefreshJobsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -278,6 +317,7 @@
             this.Controls.Add(this.LBJobs);
             this.Controls.Add(this.MS);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MS;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1472, 665);
@@ -285,6 +325,7 @@
             this.Text = "JMS";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.MS.ResumeLayout(false);
             this.MS.PerformLayout();
             this.ResumeLayout(false);
@@ -315,6 +356,10 @@
         private System.Windows.Forms.ToolStripMenuItem makeASuggestionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databasesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem refreshJobsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

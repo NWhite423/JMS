@@ -20,6 +20,9 @@ namespace JMS
         {
             try
             {
+                window.CurrentJob = job;
+                Variables.JobIndex[0] = IntVariables.MainForm.CmbDirectories.SelectedIndex;
+                Variables.JobIndex[1] = IntVariables.MainForm.LBJobs.SelectedIndex;
                 //If the listboxes have content, clear them.
                 if (window.LBRepresentatives.Nodes.Count > 0)
                 {
@@ -28,9 +31,9 @@ namespace JMS
                     window.LBRepresentatives.EndUpdate();
                 }
 
-                if (window.LBLog.Items.Count > 0)
+                if (window.TxtLog.Text.Length > 0)
                 {
-                    window.LBLog.Items.Clear();
+                    window.TxtLog.Clear();
                 }
 
                 if (window.LBTasks.Items.Count > 0)
@@ -62,12 +65,12 @@ namespace JMS
                 window.TxtEmail.Text = string.Empty;
                 window.DateTimeDueDate.Value = job.DueDate;
 
-                if (DateTime.Now.Date.AddDays(2) > job.DueDate)
+                if (DateTime.Now.Date.AddDays(2) > job.DueDate && !job.Status.Equals("Completed"))
                 {
                     window.LblDateCompare.BackColor = Color.Red;
                 }
                 else
-                if (DateTime.Now.Date.AddDays(8) > job.DueDate)
+                if (DateTime.Now.Date.AddDays(8) > job.DueDate && !job.Status.Equals("Completed"))
                 {
                     window.LblDateCompare.BackColor = Color.Yellow;
                 }
@@ -84,7 +87,15 @@ namespace JMS
                 }
                 else
                 {
-                    timeTillDue = String.Format("{0} day(s) until due", (job.DueDate - DateTime.Now.Date).Days);
+                    if (!job.Status.Equals("Completed"))
+                    {
+                        timeTillDue = String.Format("{0} day(s) until due", (job.DueDate - DateTime.Now.Date).Days);
+                    } else
+                    {
+                        timeTillDue = "Job complete";
+                        window.LblDateCompare.BackColor = Color.Green;
+                    }
+
                 }
                 window.LblDateCompare.Text = timeTillDue;
 
@@ -92,7 +103,7 @@ namespace JMS
                 window.LBRepresentatives.BeginUpdate();
                 foreach (Customer customer in job.Contacts)
                 {
-                    var node = window.LBRepresentatives.Nodes.Add(customer.Name + "(" + customer.Employees.Count + ")");
+                    var node = window.LBRepresentatives.Nodes.Add(customer.Name + " (" + customer.Employees.Count + ")");
                     int index = window.LBRepresentatives.Nodes.IndexOf(node);
                     foreach (POC poc in customer.Employees)
                     {
@@ -101,11 +112,13 @@ namespace JMS
                 }
                 window.LBRepresentatives.EndUpdate();
 
+                string log = "";
                 foreach (Note entry in job.Notes)
                 {
                     string str = String.Format("[{0}] [{1}]: {2}", entry.Timestamp, entry.Author, entry.Value);
-                    window.LBLog.Items.Add(str);
+                    log += str + Environment.NewLine;
                 }
+                window.TxtLog.Text = log;
 
                 foreach (string task in job.Tasks)
                 {
@@ -156,6 +169,7 @@ namespace JMS
                 Variables.WorkDir = JMSFunctions.AppSettings.Default.WorkDir;
                 Variables.UserName = JMSFunctions.AppSettings.Default.UserName;
                 Variables.DevMode = JMSFunctions.AppSettings.Default.DevMode;
+                Variables.Tasks = JMSFunctions.AppSettings.Default.Tasks.Cast<string>().ToList();
 
                 IntVariables.JobEditing = false;
 
@@ -167,6 +181,8 @@ namespace JMS
                 Variables.AllJobs = new List<List<Job>> { };
                 Variables.AllIndexes = new List<string> { };
                 Variables.JobTransition = false;
+                Variables.FilteredList = false;
+                Variables.JobIndex = new int[] { -1, -1 };
             }
             catch (Exception ex)
             {
@@ -188,6 +204,16 @@ namespace JMS
                 }
 
                 //Grab the year's jobs and clear the current list
+                Debug.WriteLine(Variables.AllJobs.Count + "|" + Variables.AllJobs[index].Count + "|" + index + "|" + monthIndex);
+                foreach (List<Job> jobs in Variables.AllJobs)
+                {
+                    Debug.WriteLine("Directory count: " + jobs.Count);
+                    foreach (Job job in jobs)
+                    {
+                        Debug.WriteLine("--Job Name: " + job.Name);
+                    }
+                }
+
                 List<Job> jobsAll = Variables.AllJobs[index];
                 List<Job> filter = new List<Job> { };
 

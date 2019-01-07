@@ -35,32 +35,34 @@
             this.DateTimeTo = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.DateTimeDue = new System.Windows.Forms.DateTimePicker();
-            this.CBName = new System.Windows.Forms.CheckBox();
-            this.CBAddress = new System.Windows.Forms.CheckBox();
-            this.CBDateRange = new System.Windows.Forms.CheckBox();
-            this.CBDateDue = new System.Windows.Forms.CheckBox();
-            this.CBCustomer = new System.Windows.Forms.CheckBox();
             this.TxtCustomer = new System.Windows.Forms.TextBox();
-            this.CBWorkedOn = new System.Windows.Forms.CheckBox();
             this.CBExactMatch = new System.Windows.Forms.CheckBox();
             this.CmdExecute = new System.Windows.Forms.Button();
             this.RBMatchAny = new System.Windows.Forms.RadioButton();
             this.RBMatchAll = new System.Windows.Forms.RadioButton();
             this.CBWorkers = new System.Windows.Forms.ComboBox();
+            this.CBStatusSelector = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CBDateDue = new System.Windows.Forms.CheckBox();
+            this.CBDateRange = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TxtName
             // 
-            this.TxtName.Location = new System.Drawing.Point(86, 20);
+            this.TxtName.Location = new System.Drawing.Point(87, 20);
             this.TxtName.Name = "TxtName";
-            this.TxtName.Size = new System.Drawing.Size(416, 23);
+            this.TxtName.Size = new System.Drawing.Size(415, 23);
             this.TxtName.TabIndex = 1;
             // 
             // TxtAddress
             // 
-            this.TxtAddress.Location = new System.Drawing.Point(101, 49);
+            this.TxtAddress.Location = new System.Drawing.Point(87, 49);
             this.TxtAddress.Name = "TxtAddress";
-            this.TxtAddress.Size = new System.Drawing.Size(401, 23);
+            this.TxtAddress.Size = new System.Drawing.Size(415, 23);
             this.TxtAddress.TabIndex = 3;
             // 
             // label3
@@ -100,85 +102,22 @@
             // DateTimeDue
             // 
             this.DateTimeDue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateTimeDue.Location = new System.Drawing.Point(95, 114);
+            this.DateTimeDue.Location = new System.Drawing.Point(95, 112);
             this.DateTimeDue.Name = "DateTimeDue";
             this.DateTimeDue.Size = new System.Drawing.Size(99, 23);
             this.DateTimeDue.TabIndex = 9;
             // 
-            // CBName
-            // 
-            this.CBName.AutoSize = true;
-            this.CBName.Location = new System.Drawing.Point(12, 20);
-            this.CBName.Name = "CBName";
-            this.CBName.Size = new System.Drawing.Size(68, 21);
-            this.CBName.TabIndex = 10;
-            this.CBName.Text = "Name:";
-            this.CBName.UseVisualStyleBackColor = true;
-            // 
-            // CBAddress
-            // 
-            this.CBAddress.AutoSize = true;
-            this.CBAddress.Location = new System.Drawing.Point(12, 49);
-            this.CBAddress.Name = "CBAddress";
-            this.CBAddress.Size = new System.Drawing.Size(83, 21);
-            this.CBAddress.TabIndex = 11;
-            this.CBAddress.Text = "Address:";
-            this.CBAddress.UseVisualStyleBackColor = true;
-            // 
-            // CBDateRange
-            // 
-            this.CBDateRange.AutoSize = true;
-            this.CBDateRange.Location = new System.Drawing.Point(12, 83);
-            this.CBDateRange.Name = "CBDateRange";
-            this.CBDateRange.Size = new System.Drawing.Size(115, 21);
-            this.CBDateRange.TabIndex = 12;
-            this.CBDateRange.Text = "Date Created:";
-            this.CBDateRange.UseVisualStyleBackColor = true;
-            // 
-            // CBDateDue
-            // 
-            this.CBDateDue.AutoSize = true;
-            this.CBDateDue.Location = new System.Drawing.Point(12, 116);
-            this.CBDateDue.Name = "CBDateDue";
-            this.CBDateDue.Size = new System.Drawing.Size(77, 21);
-            this.CBDateDue.TabIndex = 13;
-            this.CBDateDue.Text = "Due By:";
-            this.CBDateDue.UseVisualStyleBackColor = true;
-            // 
-            // CBCustomer
-            // 
-            this.CBCustomer.AutoSize = true;
-            this.CBCustomer.Enabled = false;
-            this.CBCustomer.Location = new System.Drawing.Point(12, 145);
-            this.CBCustomer.Name = "CBCustomer";
-            this.CBCustomer.Size = new System.Drawing.Size(52, 21);
-            this.CBCustomer.TabIndex = 14;
-            this.CBCustomer.Text = "For:";
-            this.CBCustomer.UseVisualStyleBackColor = true;
-            // 
             // TxtCustomer
             // 
-            this.TxtCustomer.Enabled = false;
-            this.TxtCustomer.Location = new System.Drawing.Point(70, 143);
+            this.TxtCustomer.Location = new System.Drawing.Point(87, 143);
             this.TxtCustomer.Name = "TxtCustomer";
-            this.TxtCustomer.Size = new System.Drawing.Size(432, 23);
+            this.TxtCustomer.Size = new System.Drawing.Size(415, 23);
             this.TxtCustomer.TabIndex = 15;
-            // 
-            // CBWorkedOn
-            // 
-            this.CBWorkedOn.AutoSize = true;
-            this.CBWorkedOn.Enabled = false;
-            this.CBWorkedOn.Location = new System.Drawing.Point(12, 172);
-            this.CBWorkedOn.Name = "CBWorkedOn";
-            this.CBWorkedOn.Size = new System.Drawing.Size(100, 21);
-            this.CBWorkedOn.TabIndex = 16;
-            this.CBWorkedOn.Text = "Worked on:";
-            this.CBWorkedOn.UseVisualStyleBackColor = true;
             // 
             // CBExactMatch
             // 
             this.CBExactMatch.AutoSize = true;
-            this.CBExactMatch.Location = new System.Drawing.Point(9, 211);
+            this.CBExactMatch.Location = new System.Drawing.Point(9, 236);
             this.CBExactMatch.Name = "CBExactMatch";
             this.CBExactMatch.Size = new System.Drawing.Size(103, 21);
             this.CBExactMatch.TabIndex = 18;
@@ -187,7 +126,7 @@
             // 
             // CmdExecute
             // 
-            this.CmdExecute.Location = new System.Drawing.Point(398, 265);
+            this.CmdExecute.Location = new System.Drawing.Point(398, 290);
             this.CmdExecute.Name = "CmdExecute";
             this.CmdExecute.Size = new System.Drawing.Size(104, 29);
             this.CmdExecute.TabIndex = 21;
@@ -199,7 +138,7 @@
             // 
             this.RBMatchAny.AutoSize = true;
             this.RBMatchAny.Checked = true;
-            this.RBMatchAny.Location = new System.Drawing.Point(9, 238);
+            this.RBMatchAny.Location = new System.Drawing.Point(9, 263);
             this.RBMatchAny.Name = "RBMatchAny";
             this.RBMatchAny.Size = new System.Drawing.Size(152, 21);
             this.RBMatchAny.TabIndex = 22;
@@ -210,7 +149,7 @@
             // RBMatchAll
             // 
             this.RBMatchAll.AutoSize = true;
-            this.RBMatchAll.Location = new System.Drawing.Point(9, 265);
+            this.RBMatchAll.Location = new System.Drawing.Point(9, 290);
             this.RBMatchAll.Name = "RBMatchAll";
             this.RBMatchAll.Size = new System.Drawing.Size(150, 21);
             this.RBMatchAll.TabIndex = 23;
@@ -220,30 +159,117 @@
             // 
             // CBWorkers
             // 
-            this.CBWorkers.Enabled = false;
+            this.CBWorkers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBWorkers.FormattingEnabled = true;
-            this.CBWorkers.Location = new System.Drawing.Point(118, 170);
+            this.CBWorkers.Location = new System.Drawing.Point(87, 170);
             this.CBWorkers.Name = "CBWorkers";
-            this.CBWorkers.Size = new System.Drawing.Size(384, 24);
+            this.CBWorkers.Size = new System.Drawing.Size(415, 24);
             this.CBWorkers.TabIndex = 24;
+            // 
+            // CBStatusSelector
+            // 
+            this.CBStatusSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBStatusSelector.FormattingEnabled = true;
+            this.CBStatusSelector.Items.AddRange(new object[] {
+            "Created",
+            "Field Work",
+            "In Office",
+            "Pending Review",
+            "On hold",
+            "Completed",
+            "Cancelled",
+            "Imported",
+            "Engineer Review",
+            "Invoicing"});
+            this.CBStatusSelector.Location = new System.Drawing.Point(87, 200);
+            this.CBStatusSelector.Name = "CBStatusSelector";
+            this.CBStatusSelector.Size = new System.Drawing.Size(415, 24);
+            this.CBStatusSelector.TabIndex = 26;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 17);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Address:";
+            // 
+            // CBDateDue
+            // 
+            this.CBDateDue.AutoSize = true;
+            this.CBDateDue.Location = new System.Drawing.Point(12, 114);
+            this.CBDateDue.Name = "CBDateDue";
+            this.CBDateDue.Size = new System.Drawing.Size(77, 21);
+            this.CBDateDue.TabIndex = 13;
+            this.CBDateDue.Text = "Due By:";
+            this.CBDateDue.UseVisualStyleBackColor = true;
+            // 
+            // CBDateRange
+            // 
+            this.CBDateRange.AutoSize = true;
+            this.CBDateRange.Location = new System.Drawing.Point(12, 83);
+            this.CBDateRange.Name = "CBDateRange";
+            this.CBDateRange.Size = new System.Drawing.Size(115, 21);
+            this.CBDateRange.TabIndex = 12;
+            this.CBDateRange.Text = "Date Created:";
+            this.CBDateRange.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 146);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 17);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Customer:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 173);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 17);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Employee:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 203);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 17);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Status:";
             // 
             // SearchWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 306);
+            this.ClientSize = new System.Drawing.Size(514, 331);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CBStatusSelector);
             this.Controls.Add(this.CBWorkers);
             this.Controls.Add(this.RBMatchAll);
             this.Controls.Add(this.RBMatchAny);
             this.Controls.Add(this.CmdExecute);
             this.Controls.Add(this.CBExactMatch);
-            this.Controls.Add(this.CBWorkedOn);
             this.Controls.Add(this.TxtCustomer);
-            this.Controls.Add(this.CBCustomer);
             this.Controls.Add(this.CBDateDue);
             this.Controls.Add(this.CBDateRange);
-            this.Controls.Add(this.CBAddress);
-            this.Controls.Add(this.CBName);
             this.Controls.Add(this.DateTimeDue);
             this.Controls.Add(this.DateTimeTo);
             this.Controls.Add(this.label4);
@@ -272,17 +298,19 @@
         private System.Windows.Forms.DateTimePicker DateTimeTo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker DateTimeDue;
-        private System.Windows.Forms.CheckBox CBName;
-        private System.Windows.Forms.CheckBox CBAddress;
-        private System.Windows.Forms.CheckBox CBDateRange;
-        private System.Windows.Forms.CheckBox CBDateDue;
-        private System.Windows.Forms.CheckBox CBCustomer;
         private System.Windows.Forms.TextBox TxtCustomer;
-        private System.Windows.Forms.CheckBox CBWorkedOn;
         private System.Windows.Forms.CheckBox CBExactMatch;
         private System.Windows.Forms.Button CmdExecute;
         private System.Windows.Forms.RadioButton RBMatchAny;
         private System.Windows.Forms.RadioButton RBMatchAll;
         private System.Windows.Forms.ComboBox CBWorkers;
+        private System.Windows.Forms.ComboBox CBStatusSelector;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox CBDateDue;
+        private System.Windows.Forms.CheckBox CBDateRange;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

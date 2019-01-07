@@ -31,6 +31,7 @@
             this.TVCustomers = new System.Windows.Forms.TreeView();
             this.CmdSelect = new System.Windows.Forms.Button();
             this.CmdCancel = new System.Windows.Forms.Button();
+            this.CmdManage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TVCustomers
@@ -61,11 +62,22 @@
             this.CmdCancel.UseVisualStyleBackColor = true;
             this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
             // 
+            // CmdManage
+            // 
+            this.CmdManage.Location = new System.Drawing.Point(93, 345);
+            this.CmdManage.Name = "CmdManage";
+            this.CmdManage.Size = new System.Drawing.Size(75, 23);
+            this.CmdManage.TabIndex = 3;
+            this.CmdManage.Text = "Manage";
+            this.CmdManage.UseVisualStyleBackColor = true;
+            this.CmdManage.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CustomerLookup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 380);
+            this.Controls.Add(this.CmdManage);
             this.Controls.Add(this.CmdCancel);
             this.Controls.Add(this.CmdSelect);
             this.Controls.Add(this.TVCustomers);
@@ -86,5 +98,6 @@
         private System.Windows.Forms.TreeView TVCustomers;
         private System.Windows.Forms.Button CmdSelect;
         private System.Windows.Forms.Button CmdCancel;
+        private System.Windows.Forms.Button CmdManage;
     }
 }

@@ -25,7 +25,6 @@ namespace JMS
         public void Initscript()
         {
             string pathMaster = Variables.WorkDir;
-            LblDescription.Text = "Grabbing Indexes";
             List<string> directories = Functions.GrabDirectories(pathMaster, "index.txt");
             Variables.AllIndexes = directories;
             List<List<Job>> allJobs = new List<List<Job>> { };
@@ -33,9 +32,7 @@ namespace JMS
             {
                 string dir = pathMaster + @"\" + directories[i];
                 Debug.WriteLine("Directory: " + dir);
-                string header = String.Format("Phase {0} of {1}: {2}", i + 1, directories.Count, Functions.GrabDirectoryName(dir));
                 List<Job> jobs = new List<Job> { };
-                LblDescription.Text = header + Environment.NewLine + "Grabing jobs";
                 List<string> jobindex = File.ReadAllLines(dir + @"\index.txt").ToList();
                 int size = jobindex.Count;
                 Progress.Maximum = size;
@@ -45,7 +42,6 @@ namespace JMS
                     Debug.WriteLine("Job: " + jobInfo[0]);
                     Job job = new Job();
                     Progress.Value = j + 1;
-                    LblDescription.Text = header + Environment.NewLine + "Processing " + Functions.GrabDirectoryName(jobInfo[0]);
 
                     //Grab information
                     job = XML.CompileJob(jobInfo[1]);
@@ -55,7 +51,7 @@ namespace JMS
                 allJobs.Add(jobs);
             }
             Variables.AllJobs = allJobs;
-            LblDescription.Text = "All Done! Opening Document.";
+            Variables.LastCompile = DateTime.Now;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
