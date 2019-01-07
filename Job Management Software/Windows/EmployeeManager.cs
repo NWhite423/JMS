@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace JMS
 {
-    public partial class CheckListDialog : Form
+    public partial class EmployeeManager : Form
     {
-        public CheckListDialog()
+        public EmployeeManager()
         {
             InitializeComponent();
-        }
-
-        private void CmdOK_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace JMSFunctions {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
-    public sealed partial class AppSettings : global::System.Configuration.ApplicationSettingsBase {
+    public partial class AppSettings : global::System.Configuration.ApplicationSettingsBase {
         
         private static AppSettings defaultInstance = ((AppSettings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new AppSettings())));
         
@@ -56,27 +56,6 @@ namespace JMSFunctions {
             }
             set {
                 this["DevMode"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>Boundary</string>
-  <string>Topographic</string>
-  <string>Pre-Construction</string>
-  <string>Construction</string>
-  <string>As-Built</string>
-  <string>ALTA/NSPS</string>
-  <string>Morgage</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection Tasks {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Tasks"]));
-            }
-            set {
-                this["Tasks"] = value;
             }
         }
     }

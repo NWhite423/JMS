@@ -162,11 +162,7 @@ namespace JMS
         public static void ProduceErrorReport(Exception ex)
         {
             ErrorReport report = new ErrorReport();
-            DialogResult result = report.ShowDialog();
-            if (result.Equals(DialogResult.Cancel))
-            {
-                return;
-            }
+            report.ShowDialog();
             string userReport = report.Report;
             string message = String.Format("User: {0}\r\n" +
                 "User Message: {1}\r\n" +
@@ -217,11 +213,8 @@ namespace JMS
             }
             catch (Exception ex)
             {
-                #if DEBUG
-                    throw ex;
-                #else
-                    MessageBox.Show("Could not send error report");
-                #endif
+                MessageBox.Show("Could not send error report");
+                throw;
             }
         }
     }

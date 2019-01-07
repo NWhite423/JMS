@@ -72,30 +72,5 @@ namespace JMSFunctions
                 CmdSelect.Enabled = true;
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CustomerManager cm = new CustomerManager();
-            DialogResult result = cm.ShowDialog();
-            if (result.Equals(DialogResult.OK))
-            {
-                XML.SaveCustomers(cm.Customers, Variables.WorkDir + @"\JMS\customers.xml");
-                Variables.Customers = XML.CompileCustomers(Variables.WorkDir + @"\JMS\customers.xml").OrderBy(o => o.Name).ToList();
-                customerList = cm.Customers;
-                TVCustomers.BeginUpdate();
-                TVCustomers.Nodes.Clear();
-                foreach (Customer customer in cm.Customers)
-                {
-                    var node = TVCustomers.Nodes.Add(customer.Name);
-                    TVCustomers.SelectedNode = node;
-                    foreach (POC poc in customer.Employees)
-                    {
-                        TVCustomers.SelectedNode.Nodes.Add(poc.Name);
-                    }
-                }
-                TVCustomers.SelectedNode = null;
-                TVCustomers.EndUpdate();
-            }
-        }
     }
 }

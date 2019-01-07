@@ -263,7 +263,7 @@ namespace JobCreationTool
             XML.WriteXMLFile(job, job.Path + @"\jobdata.xml");
 
             string logItems = job.Name + ";" + job.Path + @"\jobdata.xml;" + Environment.NewLine;
-            File.AppendAllText(JMSFunctions.AppSettings.Default.WorkDir + @"\" + Variables.Year + @"\index.txt", logItems);
+            File.AppendAllText(Properties.Settings.Default.WorkDir + @"\" + Variables.Year + @"\index.txt", logItems);
             CreateJobNumber(form);
             form.TxtAddressLine1.Text = "";
             form.TxtAddressLine2.Text = "";

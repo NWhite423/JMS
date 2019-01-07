@@ -48,10 +48,11 @@
             this.TxtDateEdited = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.GBPOC = new System.Windows.Forms.GroupBox();
-            this.CmdEmailCopy = new System.Windows.Forms.Button();
             this.LBRepresentatives = new System.Windows.Forms.TreeView();
             this.CmdRemoveRep = new System.Windows.Forms.Button();
+            this.CmdModifyRep = new System.Windows.Forms.Button();
             this.CmdAddRep = new System.Windows.Forms.Button();
+            this.CmdRepEdit = new System.Windows.Forms.Button();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -63,9 +64,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.TxtRepName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.LBLog = new System.Windows.Forms.ListBox();
             this.CmdAddComment = new System.Windows.Forms.Button();
             this.TxtnoteEditor = new System.Windows.Forms.TextBox();
             this.CmdAddTask = new System.Windows.Forms.Button();
+            this.CmdRemoveTask = new System.Windows.Forms.Button();
             this.LBTasks = new System.Windows.Forms.ListBox();
             this.TxtCreatedBy = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -80,8 +83,6 @@
             this.LblDateCompare = new System.Windows.Forms.Label();
             this.DateTimeDueDate = new System.Windows.Forms.DateTimePicker();
             this.CmdRemove = new System.Windows.Forms.Button();
-            this.TxtLog = new System.Windows.Forms.TextBox();
-            this.CmdRefresh = new System.Windows.Forms.Button();
             this.GBPOC.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -229,7 +230,6 @@
             // 
             this.CmbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbStatus.FormattingEnabled = true;
             this.CmbStatus.Items.AddRange(new object[] {
             "Created",
@@ -240,8 +240,7 @@
             "Completed",
             "Cancelled",
             "Imported",
-            "Engineer Review",
-            "Invoicing"});
+            "Engineer Review"});
             this.CmbStatus.Location = new System.Drawing.Point(896, 121);
             this.CmbStatus.Name = "CmbStatus";
             this.CmbStatus.Size = new System.Drawing.Size(162, 24);
@@ -290,10 +289,11 @@
             // 
             this.GBPOC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.GBPOC.Controls.Add(this.CmdEmailCopy);
             this.GBPOC.Controls.Add(this.LBRepresentatives);
             this.GBPOC.Controls.Add(this.CmdRemoveRep);
+            this.GBPOC.Controls.Add(this.CmdModifyRep);
             this.GBPOC.Controls.Add(this.CmdAddRep);
+            this.GBPOC.Controls.Add(this.CmdRepEdit);
             this.GBPOC.Controls.Add(this.TxtEmail);
             this.GBPOC.Controls.Add(this.label13);
             this.GBPOC.Controls.Add(this.label12);
@@ -312,18 +312,6 @@
             this.GBPOC.TabStop = false;
             this.GBPOC.Text = "Points of Contact";
             // 
-            // CmdEmailCopy
-            // 
-            this.CmdEmailCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CmdEmailCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdEmailCopy.Location = new System.Drawing.Point(971, 108);
-            this.CmdEmailCopy.Name = "CmdEmailCopy";
-            this.CmdEmailCopy.Size = new System.Drawing.Size(75, 23);
-            this.CmdEmailCopy.TabIndex = 28;
-            this.CmdEmailCopy.Text = "Copy";
-            this.CmdEmailCopy.UseVisualStyleBackColor = true;
-            this.CmdEmailCopy.Click += new System.EventHandler(this.CmdEmailCopy_Click);
-            // 
             // LBRepresentatives
             // 
             this.LBRepresentatives.Location = new System.Drawing.Point(6, 22);
@@ -334,15 +322,23 @@
             // 
             // CmdRemoveRep
             // 
-            this.CmdRemoveRep.Enabled = false;
             this.CmdRemoveRep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdRemoveRep.Location = new System.Drawing.Point(87, 140);
+            this.CmdRemoveRep.Location = new System.Drawing.Point(288, 140);
             this.CmdRemoveRep.Name = "CmdRemoveRep";
             this.CmdRemoveRep.Size = new System.Drawing.Size(75, 23);
             this.CmdRemoveRep.TabIndex = 26;
             this.CmdRemoveRep.Text = "Remove";
             this.CmdRemoveRep.UseVisualStyleBackColor = true;
-            this.CmdRemoveRep.Click += new System.EventHandler(this.CmdRemoveRep_Click);
+            // 
+            // CmdModifyRep
+            // 
+            this.CmdModifyRep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdModifyRep.Location = new System.Drawing.Point(87, 140);
+            this.CmdModifyRep.Name = "CmdModifyRep";
+            this.CmdModifyRep.Size = new System.Drawing.Size(75, 23);
+            this.CmdModifyRep.TabIndex = 25;
+            this.CmdModifyRep.Text = "Modify";
+            this.CmdModifyRep.UseVisualStyleBackColor = true;
             // 
             // CmdAddRep
             // 
@@ -353,7 +349,17 @@
             this.CmdAddRep.TabIndex = 24;
             this.CmdAddRep.Text = "Add";
             this.CmdAddRep.UseVisualStyleBackColor = true;
-            this.CmdAddRep.Click += new System.EventHandler(this.CmdAddRep_Click);
+            // 
+            // CmdRepEdit
+            // 
+            this.CmdRepEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CmdRepEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdRepEdit.Location = new System.Drawing.Point(971, 137);
+            this.CmdRepEdit.Name = "CmdRepEdit";
+            this.CmdRepEdit.Size = new System.Drawing.Size(75, 23);
+            this.CmdRepEdit.TabIndex = 20;
+            this.CmdRepEdit.Text = "Edit";
+            this.CmdRepEdit.UseVisualStyleBackColor = true;
             // 
             // TxtEmail
             // 
@@ -362,7 +368,7 @@
             this.TxtEmail.Enabled = false;
             this.TxtEmail.Location = new System.Drawing.Point(602, 108);
             this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(369, 23);
+            this.TxtEmail.Size = new System.Drawing.Size(444, 23);
             this.TxtEmail.TabIndex = 23;
             this.TxtEmail.DoubleClick += new System.EventHandler(this.TxtEmail_DoubleClick);
             // 
@@ -462,6 +468,19 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Name:";
             // 
+            // LBLog
+            // 
+            this.LBLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LBLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBLog.FormattingEnabled = true;
+            this.LBLog.ItemHeight = 20;
+            this.LBLog.Location = new System.Drawing.Point(501, 354);
+            this.LBLog.Name = "LBLog";
+            this.LBLog.Size = new System.Drawing.Size(557, 224);
+            this.LBLog.TabIndex = 25;
+            // 
             // CmdAddComment
             // 
             this.CmdAddComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -478,12 +497,9 @@
             // 
             this.TxtnoteEditor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtnoteEditor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.TxtnoteEditor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllSystemSources;
             this.TxtnoteEditor.Location = new System.Drawing.Point(501, 588);
             this.TxtnoteEditor.Multiline = true;
             this.TxtnoteEditor.Name = "TxtnoteEditor";
-            this.TxtnoteEditor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TxtnoteEditor.Size = new System.Drawing.Size(476, 44);
             this.TxtnoteEditor.TabIndex = 28;
             // 
@@ -492,11 +508,20 @@
             this.CmdAddTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CmdAddTask.Location = new System.Drawing.Point(3, 604);
             this.CmdAddTask.Name = "CmdAddTask";
-            this.CmdAddTask.Size = new System.Drawing.Size(240, 28);
+            this.CmdAddTask.Size = new System.Drawing.Size(124, 28);
             this.CmdAddTask.TabIndex = 29;
-            this.CmdAddTask.Text = "Manage Tasks";
+            this.CmdAddTask.Text = "Add Task";
             this.CmdAddTask.UseVisualStyleBackColor = true;
-            this.CmdAddTask.Click += new System.EventHandler(this.CmdAddTask_Click);
+            // 
+            // CmdRemoveTask
+            // 
+            this.CmdRemoveTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CmdRemoveTask.Location = new System.Drawing.Point(137, 604);
+            this.CmdRemoveTask.Name = "CmdRemoveTask";
+            this.CmdRemoveTask.Size = new System.Drawing.Size(124, 28);
+            this.CmdRemoveTask.TabIndex = 30;
+            this.CmdRemoveTask.Text = "Delete Task";
+            this.CmdRemoveTask.UseVisualStyleBackColor = true;
             // 
             // LBTasks
             // 
@@ -506,7 +531,7 @@
             this.LBTasks.ItemHeight = 16;
             this.LBTasks.Location = new System.Drawing.Point(3, 354);
             this.LBTasks.Name = "LBTasks";
-            this.LBTasks.Size = new System.Drawing.Size(240, 244);
+            this.LBTasks.Size = new System.Drawing.Size(258, 244);
             this.LBTasks.TabIndex = 31;
             // 
             // TxtCreatedBy
@@ -568,21 +593,20 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.LBAssigned.FormattingEnabled = true;
             this.LBAssigned.ItemHeight = 16;
-            this.LBAssigned.Location = new System.Drawing.Point(249, 354);
+            this.LBAssigned.Location = new System.Drawing.Point(267, 354);
             this.LBAssigned.Name = "LBAssigned";
-            this.LBAssigned.Size = new System.Drawing.Size(240, 244);
+            this.LBAssigned.Size = new System.Drawing.Size(228, 244);
             this.LBAssigned.TabIndex = 38;
             // 
             // CmdModifyEmployees
             // 
             this.CmdModifyEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CmdModifyEmployees.Location = new System.Drawing.Point(249, 604);
+            this.CmdModifyEmployees.Location = new System.Drawing.Point(267, 604);
             this.CmdModifyEmployees.Name = "CmdModifyEmployees";
-            this.CmdModifyEmployees.Size = new System.Drawing.Size(240, 28);
+            this.CmdModifyEmployees.Size = new System.Drawing.Size(228, 28);
             this.CmdModifyEmployees.TabIndex = 39;
             this.CmdModifyEmployees.Text = "Manage Employees";
             this.CmdModifyEmployees.UseVisualStyleBackColor = true;
-            this.CmdModifyEmployees.Click += new System.EventHandler(this.CmdModifyEmployees_Click);
             // 
             // label18
             // 
@@ -637,38 +661,11 @@
             this.CmdRemove.Visible = false;
             this.CmdRemove.Click += new System.EventHandler(this.CmdRemove_Click);
             // 
-            // TxtLog
-            // 
-            this.TxtLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtLog.Enabled = false;
-            this.TxtLog.Location = new System.Drawing.Point(501, 354);
-            this.TxtLog.Multiline = true;
-            this.TxtLog.Name = "TxtLog";
-            this.TxtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtLog.Size = new System.Drawing.Size(551, 228);
-            this.TxtLog.TabIndex = 51;
-            // 
-            // CmdRefresh
-            // 
-            this.CmdRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CmdRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdRefresh.Location = new System.Drawing.Point(821, 3);
-            this.CmdRefresh.Name = "CmdRefresh";
-            this.CmdRefresh.Size = new System.Drawing.Size(75, 23);
-            this.CmdRefresh.TabIndex = 52;
-            this.CmdRefresh.Text = "Refresh\r\n";
-            this.CmdRefresh.UseVisualStyleBackColor = true;
-            this.CmdRefresh.Click += new System.EventHandler(this.UpdateJobInfo);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.Controls.Add(this.CmdRefresh);
-            this.Controls.Add(this.TxtLog);
             this.Controls.Add(this.CmdRemove);
             this.Controls.Add(this.DateTimeDueDate);
             this.Controls.Add(this.LblDateCompare);
@@ -683,9 +680,11 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.TxtCreatedBy);
             this.Controls.Add(this.LBTasks);
+            this.Controls.Add(this.CmdRemoveTask);
             this.Controls.Add(this.CmdAddTask);
             this.Controls.Add(this.TxtnoteEditor);
             this.Controls.Add(this.CmdAddComment);
+            this.Controls.Add(this.LBLog);
             this.Controls.Add(this.GBPOC);
             this.Controls.Add(this.TxtTimeEdited);
             this.Controls.Add(this.label7);
@@ -747,14 +746,17 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.MaskedTextBox TxtPhone;
+        private System.Windows.Forms.Button CmdRepEdit;
         private System.Windows.Forms.Label label13;
         public System.Windows.Forms.TextBox TxtRepName;
         public System.Windows.Forms.TextBox TxtRepAddress;
         public System.Windows.Forms.TextBox TxtRepCompany;
         public System.Windows.Forms.TextBox TxtEmail;
+        public System.Windows.Forms.ListBox LBLog;
         private System.Windows.Forms.Button CmdAddComment;
         public System.Windows.Forms.TextBox TxtnoteEditor;
         private System.Windows.Forms.Button CmdAddTask;
+        private System.Windows.Forms.Button CmdRemoveTask;
         public System.Windows.Forms.ListBox LBTasks;
         public System.Windows.Forms.TextBox TxtCreatedBy;
         private System.Windows.Forms.Label label14;
@@ -763,6 +765,7 @@
         private System.Windows.Forms.Label label16;
         public System.Windows.Forms.TextBox TxtPrice;
         private System.Windows.Forms.Button CmdRemoveRep;
+        private System.Windows.Forms.Button CmdModifyRep;
         private System.Windows.Forms.Button CmdAddRep;
         public System.Windows.Forms.ListBox LBAssigned;
         private System.Windows.Forms.Button CmdModifyEmployees;
@@ -772,8 +775,5 @@
         public System.Windows.Forms.DateTimePicker DateTimeDueDate;
         private System.Windows.Forms.Button CmdRemove;
         public System.Windows.Forms.TreeView LBRepresentatives;
-        public System.Windows.Forms.TextBox TxtLog;
-        private System.Windows.Forms.Button CmdEmailCopy;
-        private System.Windows.Forms.Button CmdRefresh;
     }
 }

@@ -49,8 +49,8 @@ namespace JobCreationTool
                 Value = lookup.Value;
                 TxtCompany.Text = Value.Name;
                 TxtName.Text = Value.Employees[0].Name;
-                TxtAddressLine1.Text = Value.Employees[0].Address.Split(';')[0];
-                TxtAddressLine2.Text = Value.Employees[0].Address.Split(';')[1];
+                TxtAddressLine1.Text = Value.Address.Split(';')[0];
+                TxtAddressLine2.Text = Value.Address.Split(';')[1];
                 TxtPhone.Text = Value.Employees[0].PhoneNumber;
                 TxtEmail.Text = Value.Employees[0].Email;
             }

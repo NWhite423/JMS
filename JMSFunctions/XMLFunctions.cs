@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.IO;
 using System.Diagnostics;
-using JMS;
 
 namespace JMSFunctions
 {
@@ -242,129 +241,23 @@ namespace JMSFunctions
                     Phone = element.Element("Phone").Value,
                     Employees = new List<POC> { }
                 };
-                
                 var employees = element.Descendants("Representatives").Elements();
                 foreach (XElement employee in employees)
                 {
                     POC poc = new POC()
                     {
                         Name = employee.Element("Name").Value,
+                        Address = customer.Address,
                         PhoneNumber = employee.Element("Phone").Value,
                         Email = employee.Element("Email").Value,
                         Company = customer.Name
                     };
-                    if (employee.Element("Address") == null)
-                    {
-                        poc.Address = customer.Address;
-                    } else
-                    {
-                        if (employee.Element("Address").Value == ";")
-                        {
-                            poc.Address = customer.Address;
-                        } else
-                        {
-                            poc.Address = employee.Element("Address").Value;
-                        }
-                    }
                     customer.Employees.Add(poc);
                 }
                 customers.Add(customer);
             }
 
             return customers;
-        }
-
-        public static void RecompileJobs()
-        {
-            List<string> directories = Functions.GrabDirectories(Variables.WorkDir, "index.txt");
-            for (int i = 0; i < directories.Count; i++)
-            {
-                DateTime lastEdit = File.GetLastWriteTime(Variables.WorkDir + @"\" + directories[i] + @"\index.txt");
-                Debug.WriteLine(Variables.WorkDir + @"\" + directories + @"\index.txt" + " - " + lastEdit.ToLongDateString() + " " + lastEdit.ToLongTimeString());
-                Debug.WriteLine(Variables.LastCompile.ToLongDateString() + " " + Variables.LastCompile.ToLongTimeString());
-                if (lastEdit > Variables.LastCompile)
-                {
-                    Debug.WriteLine(string.Format("Recompile {0} ({1})", directories[i], i));
-                    for (int j = 0; j < directories.Count; j++)
-                    {
-                        string dir = Variables.WorkDir + @"\" + directories[i];
-                        Debug.WriteLine("Directory: " + dir);
-                        List<Job> jobs = new List<Job> { };
-                        List<string> jobindex = File.ReadAllLines(dir + @"\index.txt").ToList();
-                        int size = jobindex.Count;
-                        for (int k = 0; k < size; k++)
-                        {
-                            string[] jobInfo = jobindex[k].Split(';');
-                            Debug.WriteLine("Job: " + jobInfo[0]);
-                            Job job = new Job();
-
-                            //Grab information
-                            job = XML.CompileJob(jobInfo[1]);
-                            Debug.WriteLine("compiled " + job.Name);
-                            jobs.Add(job);
-                        }
-                        Variables.AllJobs[i] = jobs;
-                    }
-                }
-            }
-            Variables.LastCompile = DateTime.Now;
-        }
-
-        public static bool RecompileJob(string filepath, int year, int position)
-        {
-            Debug.WriteLine("Filepath: " + filepath + @"\jobdata.xml");
-            if (!File.Exists(filepath + @"\jobdata.xml"))
-            {
-                return false;
-            }
-            Job job = CompileJob(filepath + @"\jobdata.xml");
-            Debug.WriteLine("Produced job: " + job.Name);
-            Debug.WriteLine("Existing job: " + Variables.AllJobs[year][position].Name);
-            Variables.AllJobs[year][position] = job;
-            Debug.WriteLine("Replacement job: " + Variables.AllJobs[year][position].Name);
-            return true;
-        }
-
-        public static bool SaveEmployees(List<Employee> employees, string source)
-        {
-            return true;
-        }
-
-        public static bool SaveCustomers(List<Customer> customers, string source)
-        {
-            if (customers.Count == 0)
-            {
-                return false;
-            }
-
-            XElement master = new XElement("Customers");
-
-            foreach (Customer customer in customers)
-            {
-                XElement element = new XElement("Customer",
-                    new XElement("Name", customer.Name),
-                    new XElement("Address", customer.Address),
-                    new XElement("Phone", customer.Phone)
-                    );
-
-                XElement employees = new XElement("Representatives");
-                foreach (POC employee in customer.Employees)
-                {
-                    XElement employeeXE = new XElement("Representative",
-                    new XElement("Name", employee.Name),
-                    new XElement("Address", employee.Address),
-                    new XElement("Phone", employee.PhoneNumber),
-                    new XElement("Email", employee.Email)
-                    );
-                    employees.Add(employeeXE);
-                }
-                element.Add(employees);
-                master.Add(element);
-            }
-
-            master.Save(source);
-
-            return true;
         }
     }
 }

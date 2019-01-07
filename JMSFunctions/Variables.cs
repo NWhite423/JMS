@@ -32,12 +32,5 @@ namespace JMS
 
         public static Job Job;
         public static ListBox JobList;
-        public static bool FilteredList;
-
-        public static int[] JobIndex;
-
-        public static DateTime LastCompile;
-
-        public static List<string> Tasks;
     }
 }
