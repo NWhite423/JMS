@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.Progress = new System.Windows.Forms.ProgressBar();
             this.LblDescription = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -44,14 +43,6 @@
             this.label1.Text = "Job Management Software";
             this.label1.UseWaitCursor = true;
             // 
-            // Progress
-            // 
-            this.Progress.Location = new System.Drawing.Point(12, 229);
-            this.Progress.Name = "Progress";
-            this.Progress.Size = new System.Drawing.Size(460, 23);
-            this.Progress.TabIndex = 1;
-            this.Progress.UseWaitCursor = true;
-            // 
             // LblDescription
             // 
             this.LblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -59,7 +50,7 @@
             this.LblDescription.Name = "LblDescription";
             this.LblDescription.Size = new System.Drawing.Size(460, 104);
             this.LblDescription.TabIndex = 2;
-            this.LblDescription.Text = "label2";
+            this.LblDescription.Text = "Welcome";
             this.LblDescription.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.LblDescription.UseWaitCursor = true;
             // 
@@ -69,7 +60,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.LblDescription);
-            this.Controls.Add(this.Progress);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoadingScreen";
@@ -77,7 +67,7 @@
             this.Text = "LoadingScreen";
             this.TopMost = true;
             this.UseWaitCursor = true;
-            this.Shown += new System.EventHandler(this.LoadingScreen_Shown);
+            this.Load += new System.EventHandler(this.LoadingScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,7 +76,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ProgressBar Progress;
-        private System.Windows.Forms.Label LblDescription;
+        public System.Windows.Forms.Label LblDescription;
     }
 }

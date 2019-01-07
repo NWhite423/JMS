@@ -11,5 +11,6 @@ namespace JMS
     {
         public static MainForm MainForm;
         public static bool JobEditing;
+        public static bool LoadingDone;
     }
 }

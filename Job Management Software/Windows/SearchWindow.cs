@@ -20,18 +20,12 @@ namespace JMS
         }
 
         public List<Job> FilteredJobs { get; set; }
-        private List<Employee> Employees { get; set; }
-        private List<List<Job>> Jobs { get; set; }
 
         private void SearchWindow_Load(object sender, EventArgs e)
         {
             DateTimeFrom.Value = DateTime.Now;
             DateTimeTo.Value = DateTime.Now;
             DateTimeDue.Value = DateTime.Now;
-
-            Employees = Variables.Employees;
-            Jobs = Variables.AllJobs;
-
             foreach (Employee employee in Variables.Employees)
             {
                 CBWorkers.Items.Add(employee.Name);
@@ -41,20 +35,22 @@ namespace JMS
         private void CmdExecute_Click(object sender, EventArgs e)
         {
             int directory = IntVariables.MainForm.CmbDirectories.SelectedIndex;
+            List<Job> jobs = Variables.AllJobs[directory];
 
             int filtersApplied = 0;
             List<Job> consideredJobs = new List<Job> { };
-            IEnumerable<Job> resultstream = Jobs[directory];
+            IEnumerable<Job> resultstream = jobs;
+
             
+
             List<Job> namesearch = new List<Job> { };
             List<Job> addressSerch = new List<Job> { };
             List<Job> dateSearch = new List<Job> { };
             List<Job> dueDateSerch = new List<Job> { };
             List<Job> customerSerch = new List<Job> { };
             List<Job> employeeSerch = new List<Job> { };
-            List<Job> statusSearch = new List<Job> { };
 
-            if (TxtName.Text.Count() > 0)
+            if (CBName.Checked)
             {
                 filtersApplied++;
                 if (CBExactMatch.Checked)
@@ -66,7 +62,7 @@ namespace JMS
                 }
             }
 
-            if (TxtAddress.Text.Count() > 0)
+            if (CBAddress.Checked)
             {
                 filtersApplied++;
                 if (CBExactMatch.Checked)
@@ -96,39 +92,25 @@ namespace JMS
                 dueDateSerch = resultstream.Where(job => job.DueDate <= limit && (job.Status != "COMPLETE" || job.Status != "CANCELLED")).ToList();
             }
 
-            if (TxtCustomer.Text.Count() > 2)
+            /*if (CBCustomer.Checked)
             {
                 filtersApplied++;
-                if (TxtCustomer.Text[0] == '@')
+                if (CBExactMatch.Checked)
                 {
-                    customerSerch = resultstream.Where(
-                        job => job.Contacts.Any(
-                            c => c.Name.Contains(TxtCustomer.Text.TrimStart())
-                        )
-                    ).ToList();
+                    customerSerch = resultstream.Where(job => job.Name.Equals(TxtName.Text)).ToList();
                 }
                 else
                 {
-                    customerSerch = resultstream.Where(
-                        job => job.Contacts.Any(
-                            c => c.Employees.Any(
-                                m => m.Name.Contains(TxtCustomer.Text)
-                            )
-                        )
-                    ).ToList();
+                    customerSerch = resultstream.Where(job => job.Name.Contains(TxtName.Text)).ToList();
                 }
-            }
+            }*/
 
-            if (CBWorkers.SelectedItem != null)
+            if (CBWorkedOn.Checked)
             {
                 filtersApplied++;
-                employeeSerch = resultstream.Where(j => j.Employees.Any(m => m.Name == CBWorkers.GetItemText(CBWorkers.SelectedItem))).ToList();
-            }
+                string name = CBWorkers.GetItemText(CBWorkers.SelectedItem);
 
-            if (CBStatusSelector.SelectedItem != null)
-            {
-                filtersApplied++;
-                statusSearch = resultstream.Where(j => j.Status == CBStatusSelector.GetItemText(CBStatusSelector.SelectedItem)).ToList();
+                employeeSerch = resultstream.Where(job => job.Employees.Any(person => person.Name == name)).ToList();
             }
 
             if (filtersApplied.Equals(0))
@@ -138,16 +120,20 @@ namespace JMS
             }
 
             IntVariables.MainForm.TxtSearchResults.Text = filtersApplied.ToString() + " applied";
-            
+
+            if (Variables.Jobs.Count > 0)
+            {
+                Variables.Jobs.Clear();
+            }
+
             if (RBMatchAny.Checked)
             {
-                Debug.WriteLine(namesearch.Count + "|" + addressSerch.Count + "|" + dateSearch.Count + "|" + dueDateSerch.Count + "|" + customerSerch.Count + "|" + employeeSerch.Count + "|" + statusSearch.Count);
-                var combined = namesearch.Union(addressSerch).ToList();
-                combined = combined.Union(dateSearch).ToList();
-                combined = combined.Union(dueDateSerch).ToList();
-                combined = combined.Union(customerSerch).ToList();
-                combined = combined.Union(employeeSerch).ToList();
-                combined = combined.Union(statusSearch).ToList();
+                Debug.WriteLine(namesearch.Count + "|" + addressSerch.Count + "|" + dateSearch.Count + "|" + dueDateSerch.Count + "|" + customerSerch.Count + "|" + employeeSerch.Count);
+                var combined = namesearch.Union(addressSerch);
+                combined = combined.Union(dateSearch);
+                combined = combined.Union(dueDateSerch);
+                combined = combined.Union(customerSerch);
+                combined = combined.Union(employeeSerch);
                 FilteredJobs = combined.ToList();
                 Debug.WriteLine("Job count: " + FilteredJobs.Count);
             }
