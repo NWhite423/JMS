@@ -267,7 +267,7 @@ namespace JMS
                 Name = name,
                 Address = address,
                 PhoneNumber = phone,
-                Email = phone,
+                Email = email,
                 Company = customerParent.Name
             };
             customerParent.Employees.Add(pocItem);
