@@ -52,10 +52,10 @@
             this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testEMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showJobInformationV2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.CBMonth = new System.Windows.Forms.ComboBox();
             this.CmdSearchClear = new System.Windows.Forms.Button();
-            this.showJobInformationV2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +69,7 @@
             this.LBJobs.Location = new System.Drawing.Point(16, 120);
             this.LBJobs.Margin = new System.Windows.Forms.Padding(4);
             this.LBJobs.Name = "LBJobs";
-            this.LBJobs.Size = new System.Drawing.Size(317, 498);
+            this.LBJobs.Size = new System.Drawing.Size(317, 274);
             this.LBJobs.Sorted = true;
             this.LBJobs.TabIndex = 0;
             this.LBJobs.SelectedIndexChanged += new System.EventHandler(this.LBJobs_SelectedIndexChanged);
@@ -116,7 +116,7 @@
             this.MS.Location = new System.Drawing.Point(0, 0);
             this.MS.Name = "MS";
             this.MS.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.MS.Size = new System.Drawing.Size(1456, 24);
+            this.MS.Size = new System.Drawing.Size(734, 24);
             this.MS.TabIndex = 4;
             this.MS.Text = "menuStrip1";
             // 
@@ -259,16 +259,22 @@
             this.testEMailToolStripMenuItem.Visible = false;
             this.testEMailToolStripMenuItem.Click += new System.EventHandler(this.TestEMailToolStripMenuItem_Click);
             // 
+            // showJobInformationV2ToolStripMenuItem
+            // 
+            this.showJobInformationV2ToolStripMenuItem.Name = "showJobInformationV2ToolStripMenuItem";
+            this.showJobInformationV2ToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.showJobInformationV2ToolStripMenuItem.Text = "Show Job Information V2";
+            this.showJobInformationV2ToolStripMenuItem.Click += new System.EventHandler(this.ShowJobInformationV2ToolStripMenuItem_Click);
+            // 
             // MainPanel
             // 
             this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MainPanel.AutoScroll = true;
-            this.MainPanel.AutoScrollMinSize = new System.Drawing.Size(1061, 640);
             this.MainPanel.Location = new System.Drawing.Point(342, 36);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1102, 582);
+            this.MainPanel.Size = new System.Drawing.Size(380, 365);
             this.MainPanel.TabIndex = 5;
             // 
             // CBMonth
@@ -307,18 +313,11 @@
             this.CmdSearchClear.UseVisualStyleBackColor = true;
             this.CmdSearchClear.Click += new System.EventHandler(this.CmdSearchClear_Click);
             // 
-            // showJobInformationV2ToolStripMenuItem
-            // 
-            this.showJobInformationV2ToolStripMenuItem.Name = "showJobInformationV2ToolStripMenuItem";
-            this.showJobInformationV2ToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.showJobInformationV2ToolStripMenuItem.Text = "Show Job Information V2";
-            this.showJobInformationV2ToolStripMenuItem.Click += new System.EventHandler(this.ShowJobInformationV2ToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1456, 626);
+            this.ClientSize = new System.Drawing.Size(734, 409);
             this.Controls.Add(this.CmdSearchClear);
             this.Controls.Add(this.CBMonth);
             this.Controls.Add(this.MainPanel);
@@ -331,7 +330,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MS;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1364, 665);
             this.Name = "MainForm";
             this.Text = "JMS";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;

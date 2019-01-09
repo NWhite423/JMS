@@ -17,14 +17,26 @@ namespace JMS.UC
             InitializeComponent();
         }
 
+        private void ResizeControls()
+        {
+            int formwidth = Width;
+            int edgeBuffer = 4;
+            int centerBuffer = 8;
+            int itemWidth = (formwidth - edgeBuffer - edgeBuffer - centerBuffer) / 2;
+            TEName.Width = itemWidth;
+            TEAddress.Width = itemWidth;
+
+            TEAddress.Location = new Point(edgeBuffer + itemWidth + centerBuffer - 1, TEAddress.Location.Y);
+        }
+
         private void JobInformation_Load(object sender, EventArgs e)
         {
-            
+            ResizeControls();
         }
 
         private void JobInformation_SizeChanged(object sender, EventArgs e)
         {
-
+            ResizeControls();
         }
     }
 }
