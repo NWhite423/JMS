@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.TEName = new JMS.TextEntry();
             this.TEAddress = new JMS.TextEntry();
+            this.TEName = new JMS.TextEntry();
+            this.eMailManager1 = new MDG_UC.EMailManager();
             this.SuspendLayout();
             // 
             // label1
@@ -43,19 +44,6 @@
             this.label1.Size = new System.Drawing.Size(580, 2);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
-            // 
-            // TEName
-            // 
-            this.TEName.Editable = true;
-            this.TEName.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TEName.Location = new System.Drawing.Point(3, 35);
-            this.TEName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TEName.MinimumSize = new System.Drawing.Size(170, 50);
-            this.TEName.Name = "TEName";
-            this.TEName.Size = new System.Drawing.Size(285, 50);
-            this.TEName.TabIndex = 1;
-            this.TEName.Title = "Name:";
-            this.TEName.Value = "";
             // 
             // TEAddress
             // 
@@ -70,11 +58,35 @@
             this.TEAddress.Title = "Address:";
             this.TEAddress.Value = "";
             // 
+            // TEName
+            // 
+            this.TEName.Editable = true;
+            this.TEName.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TEName.Location = new System.Drawing.Point(3, 35);
+            this.TEName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TEName.MinimumSize = new System.Drawing.Size(170, 50);
+            this.TEName.Name = "TEName";
+            this.TEName.Size = new System.Drawing.Size(285, 50);
+            this.TEName.TabIndex = 1;
+            this.TEName.Title = "Name:";
+            this.TEName.Value = "";
+            // 
+            // eMailManager1
+            // 
+            this.eMailManager1.BackColor = System.Drawing.SystemColors.Window;
+            this.eMailManager1.Font = new System.Drawing.Font("Nirmala UI", 9.75F);
+            this.eMailManager1.Location = new System.Drawing.Point(3, 93);
+            this.eMailManager1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.eMailManager1.Name = "eMailManager1";
+            this.eMailManager1.Size = new System.Drawing.Size(245, 317);
+            this.eMailManager1.TabIndex = 3;
+            // 
             // JobInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.eMailManager1);
             this.Controls.Add(this.TEAddress);
             this.Controls.Add(this.TEName);
             this.Controls.Add(this.label1);
@@ -93,5 +105,6 @@
         private System.Windows.Forms.Label label1;
         private TextEntry TEName;
         private TextEntry TEAddress;
+        private MDG_UC.EMailManager eMailManager1;
     }
 }

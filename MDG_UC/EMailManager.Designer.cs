@@ -46,21 +46,23 @@
             this.DragDropEmail.BackColor = System.Drawing.Color.Transparent;
             this.DragDropEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DragDropEmail.Controls.Add(this.label1);
-            this.DragDropEmail.Location = new System.Drawing.Point(3, 219);
+            this.DragDropEmail.Location = new System.Drawing.Point(3, 204);
             this.DragDropEmail.Name = "DragDropEmail";
-            this.DragDropEmail.Size = new System.Drawing.Size(297, 110);
+            this.DragDropEmail.Size = new System.Drawing.Size(239, 110);
             this.DragDropEmail.TabIndex = 1;
             this.DragDropEmail.DragDrop += new System.Windows.Forms.DragEventHandler(this.Panel1_DragDrop);
             this.DragDropEmail.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel1_DragEnter);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(91, 0);
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 17);
+            this.label1.Size = new System.Drawing.Size(231, 108);
             this.label1.TabIndex = 0;
             this.label1.Text = "Drag Emails Here";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DataGridEmails
             // 
@@ -83,7 +85,7 @@
             this.DataGridEmails.ShowCellErrors = false;
             this.DataGridEmails.ShowEditingIcon = false;
             this.DataGridEmails.ShowRowErrors = false;
-            this.DataGridEmails.Size = new System.Drawing.Size(297, 154);
+            this.DataGridEmails.Size = new System.Drawing.Size(239, 139);
             this.DataGridEmails.TabIndex = 2;
             this.DataGridEmails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridEmails_CellDoubleClick);
             this.DataGridEmails.SelectionChanged += new System.EventHandler(this.DataGridEmails_SelectionChanged);
@@ -92,7 +94,7 @@
             // 
             this.CmdRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CmdRemove.BackColor = System.Drawing.Color.Transparent;
-            this.CmdRemove.Location = new System.Drawing.Point(225, 191);
+            this.CmdRemove.Location = new System.Drawing.Point(167, 176);
             this.CmdRemove.Name = "CmdRemove";
             this.CmdRemove.Size = new System.Drawing.Size(75, 23);
             this.CmdRemove.TabIndex = 3;
@@ -105,7 +107,7 @@
             // 
             this.CmdAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CmdAdd.BackColor = System.Drawing.Color.Transparent;
-            this.CmdAdd.Location = new System.Drawing.Point(3, 191);
+            this.CmdAdd.Location = new System.Drawing.Point(3, 176);
             this.CmdAdd.Name = "CmdAdd";
             this.CmdAdd.Size = new System.Drawing.Size(75, 23);
             this.CmdAdd.TabIndex = 4;
@@ -119,7 +121,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtSearch.Location = new System.Drawing.Point(3, 5);
             this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.Size = new System.Drawing.Size(297, 25);
+            this.TxtSearch.Size = new System.Drawing.Size(239, 25);
             this.TxtSearch.TabIndex = 5;
             this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             this.TxtSearch.Enter += new System.EventHandler(this.TxtSearch_Enter);
@@ -138,10 +140,9 @@
             this.Font = new System.Drawing.Font("Nirmala UI", 9.75F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EMailManager";
-            this.Size = new System.Drawing.Size(303, 332);
+            this.Size = new System.Drawing.Size(245, 317);
             this.Load += new System.EventHandler(this.EMailManager_Load);
             this.DragDropEmail.ResumeLayout(false);
-            this.DragDropEmail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridEmails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
