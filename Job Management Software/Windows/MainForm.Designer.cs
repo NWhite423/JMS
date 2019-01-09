@@ -55,6 +55,7 @@
             this.MainPanel = new System.Windows.Forms.Panel();
             this.CBMonth = new System.Windows.Forms.ComboBox();
             this.CmdSearchClear = new System.Windows.Forms.Button();
+            this.showJobInformationV2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,33 +135,33 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
             // 
             // refreshJobsToolStripMenuItem
             // 
             this.refreshJobsToolStripMenuItem.Name = "refreshJobsToolStripMenuItem";
-            this.refreshJobsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshJobsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.refreshJobsToolStripMenuItem.Text = "Refresh Jobs";
             this.refreshJobsToolStripMenuItem.Click += new System.EventHandler(this.RefreshJobsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(171, 6);
             // 
             // makeASuggestionToolStripMenuItem
             // 
             this.makeASuggestionToolStripMenuItem.Name = "makeASuggestionToolStripMenuItem";
-            this.makeASuggestionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.makeASuggestionToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.makeASuggestionToolStripMenuItem.Text = "Make a Suggestion";
             this.makeASuggestionToolStripMenuItem.Visible = false;
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -176,7 +177,7 @@
             // 
             this.jobToolStripMenuItem.Name = "jobToolStripMenuItem";
             this.jobToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.jobToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jobToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.jobToolStripMenuItem.Text = "Job";
             this.jobToolStripMenuItem.Click += new System.EventHandler(this.JobToolStripMenuItem_Click);
             // 
@@ -192,14 +193,14 @@
             // customersToolStripMenuItem
             // 
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.customersToolStripMenuItem.Text = "Customers";
             this.customersToolStripMenuItem.Click += new System.EventHandler(this.CustomersToolStripMenuItem_Click);
             // 
             // employeesToolStripMenuItem
             // 
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
-            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.employeesToolStripMenuItem.Text = "Employees";
             this.employeesToolStripMenuItem.Visible = false;
             // 
@@ -218,43 +219,44 @@
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.SalesToolStripMenuItem_Click);
             // 
             // deadlineToolStripMenuItem
             // 
             this.deadlineToolStripMenuItem.Name = "deadlineToolStripMenuItem";
-            this.deadlineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deadlineToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.deadlineToolStripMenuItem.Text = "Deadline";
             this.deadlineToolStripMenuItem.Click += new System.EventHandler(this.DeadlineToolStripMenuItem_Click);
             // 
             // monthyToolStripMenuItem
             // 
             this.monthyToolStripMenuItem.Name = "monthyToolStripMenuItem";
-            this.monthyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monthyToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.monthyToolStripMenuItem.Text = "Monthy";
             // 
             // customToolStripMenuItem
             // 
             this.customToolStripMenuItem.Name = "customToolStripMenuItem";
-            this.customToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.customToolStripMenuItem.Text = "Custom";
             // 
             // testingToolStripMenuItem
             // 
             this.testingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.testEMailToolStripMenuItem});
+            this.testEMailToolStripMenuItem,
+            this.showJobInformationV2ToolStripMenuItem});
             this.testingToolStripMenuItem.Name = "testingToolStripMenuItem";
             this.testingToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.testingToolStripMenuItem.Text = "Testing";
-            this.testingToolStripMenuItem.Visible = false;
             // 
             // testEMailToolStripMenuItem
             // 
             this.testEMailToolStripMenuItem.Name = "testEMailToolStripMenuItem";
-            this.testEMailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testEMailToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.testEMailToolStripMenuItem.Text = "Test E-Mail";
+            this.testEMailToolStripMenuItem.Visible = false;
             this.testEMailToolStripMenuItem.Click += new System.EventHandler(this.TestEMailToolStripMenuItem_Click);
             // 
             // MainPanel
@@ -304,6 +306,13 @@
             this.CmdSearchClear.Text = "X";
             this.CmdSearchClear.UseVisualStyleBackColor = true;
             this.CmdSearchClear.Click += new System.EventHandler(this.CmdSearchClear_Click);
+            // 
+            // showJobInformationV2ToolStripMenuItem
+            // 
+            this.showJobInformationV2ToolStripMenuItem.Name = "showJobInformationV2ToolStripMenuItem";
+            this.showJobInformationV2ToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.showJobInformationV2ToolStripMenuItem.Text = "Show Job Information V2";
+            this.showJobInformationV2ToolStripMenuItem.Click += new System.EventHandler(this.ShowJobInformationV2ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -362,6 +371,7 @@
         private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshJobsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem showJobInformationV2ToolStripMenuItem;
     }
 }
 

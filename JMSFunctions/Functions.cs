@@ -215,10 +215,10 @@ namespace JMS
                 client.Dispose();
                 Application.Exit();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 #if DEBUG
-                    throw ex;
+                    throw;
                 #else
                     MessageBox.Show("Could not send error report");
                 #endif

@@ -71,8 +71,8 @@ namespace JMS
                     this.Close();
                 }
             }
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         private void TVCustomers_DoubleClick(object sender, EventArgs e)

@@ -273,5 +273,14 @@ namespace JMS
             XML.RecompileJobs();
             IntFunctions.PopulateJobList(CmbDirectories.SelectedIndex, CBMonth.SelectedIndex);
         }
+
+        private void ShowJobInformationV2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JobInformation information = new JobInformation
+            {
+                Dock = DockStyle.Fill
+            };
+            MainPanel.Controls.Add(information);
+        }
     }
 }
