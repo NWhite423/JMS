@@ -40,7 +40,7 @@ namespace JMS
 
         private void CmdExecute_Click(object sender, EventArgs e)
         {
-            int directory = IntVariables.MainForm.CmbDirectories.SelectedIndex;
+            /*int directory = IntVariables.MainForm.CmbDirectories.SelectedIndex;
 
             int filtersApplied = 0;
             List<Job> consideredJobs = new List<Job> { };
@@ -152,7 +152,7 @@ namespace JMS
                 Debug.WriteLine("Job count: " + FilteredJobs.Count);
             }
             this.DialogResult = DialogResult.OK;
-            this.Close();
+            this.Close();*/
         }
     }
 }

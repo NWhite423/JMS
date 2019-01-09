@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.LBJobs = new System.Windows.Forms.ListBox();
-            this.CmbDirectories = new System.Windows.Forms.ComboBox();
-            this.TxtSearchResults = new System.Windows.Forms.TextBox();
-            this.CmdFilter = new System.Windows.Forms.Button();
             this.MS = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,57 +49,17 @@
             this.testingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testEMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showJobInformationV2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MainPanel = new System.Windows.Forms.Panel();
-            this.CBMonth = new System.Windows.Forms.ComboBox();
-            this.CmdSearchClear = new System.Windows.Forms.Button();
+            this.SCMain = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.CmdAdvSearch = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.MS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SCMain)).BeginInit();
+            this.SCMain.Panel1.SuspendLayout();
+            this.SCMain.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // LBJobs
-            // 
-            this.LBJobs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.LBJobs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LBJobs.FormattingEnabled = true;
-            this.LBJobs.ItemHeight = 16;
-            this.LBJobs.Location = new System.Drawing.Point(16, 120);
-            this.LBJobs.Margin = new System.Windows.Forms.Padding(4);
-            this.LBJobs.Name = "LBJobs";
-            this.LBJobs.Size = new System.Drawing.Size(317, 274);
-            this.LBJobs.Sorted = true;
-            this.LBJobs.TabIndex = 0;
-            this.LBJobs.SelectedIndexChanged += new System.EventHandler(this.LBJobs_SelectedIndexChanged);
-            // 
-            // CmbDirectories
-            // 
-            this.CmbDirectories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDirectories.FormattingEnabled = true;
-            this.CmbDirectories.Location = new System.Drawing.Point(16, 36);
-            this.CmbDirectories.Margin = new System.Windows.Forms.Padding(4);
-            this.CmbDirectories.Name = "CmbDirectories";
-            this.CmbDirectories.Size = new System.Drawing.Size(317, 24);
-            this.CmbDirectories.TabIndex = 1;
-            this.CmbDirectories.SelectedIndexChanged += new System.EventHandler(this.CmbDirectories_SelectedIndexChanged);
-            // 
-            // TxtSearchResults
-            // 
-            this.TxtSearchResults.Enabled = false;
-            this.TxtSearchResults.Location = new System.Drawing.Point(16, 88);
-            this.TxtSearchResults.Margin = new System.Windows.Forms.Padding(4);
-            this.TxtSearchResults.Name = "TxtSearchResults";
-            this.TxtSearchResults.Size = new System.Drawing.Size(239, 23);
-            this.TxtSearchResults.TabIndex = 2;
-            // 
-            // CmdFilter
-            // 
-            this.CmdFilter.Location = new System.Drawing.Point(275, 88);
-            this.CmdFilter.Margin = new System.Windows.Forms.Padding(4);
-            this.CmdFilter.Name = "CmdFilter";
-            this.CmdFilter.Size = new System.Drawing.Size(60, 24);
-            this.CmdFilter.TabIndex = 3;
-            this.CmdFilter.Text = "Filter";
-            this.CmdFilter.UseVisualStyleBackColor = true;
-            this.CmdFilter.Click += new System.EventHandler(this.CmdFilter_Click);
             // 
             // MS
             // 
@@ -115,8 +71,8 @@
             this.testingToolStripMenuItem});
             this.MS.Location = new System.Drawing.Point(0, 0);
             this.MS.Name = "MS";
-            this.MS.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.MS.Size = new System.Drawing.Size(734, 24);
+            this.MS.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.MS.Size = new System.Drawing.Size(642, 24);
             this.MS.TabIndex = 4;
             this.MS.Text = "menuStrip1";
             // 
@@ -266,67 +222,81 @@
             this.showJobInformationV2ToolStripMenuItem.Text = "Show Job Information V2";
             this.showJobInformationV2ToolStripMenuItem.Click += new System.EventHandler(this.ShowJobInformationV2ToolStripMenuItem_Click);
             // 
-            // MainPanel
+            // SCMain
             // 
-            this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.SCMain.BackColor = System.Drawing.SystemColors.Window;
+            this.SCMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SCMain.Location = new System.Drawing.Point(0, 24);
+            this.SCMain.Name = "SCMain";
+            // 
+            // SCMain.Panel1
+            // 
+            this.SCMain.Panel1.Controls.Add(this.textBox1);
+            this.SCMain.Panel1.Controls.Add(this.CmdAdvSearch);
+            this.SCMain.Panel1.Controls.Add(this.comboBox2);
+            this.SCMain.Panel1.Controls.Add(this.comboBox1);
+            this.SCMain.Panel1.Controls.Add(this.panel1);
+            this.SCMain.Size = new System.Drawing.Size(642, 411);
+            this.SCMain.SplitterDistance = 230;
+            this.SCMain.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MainPanel.AutoScroll = true;
-            this.MainPanel.Location = new System.Drawing.Point(342, 36);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(380, 365);
-            this.MainPanel.TabIndex = 5;
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(3, 56);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(225, 352);
+            this.panel1.TabIndex = 0;
             // 
-            // CBMonth
+            // comboBox1
             // 
-            this.CBMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBMonth.FormattingEnabled = true;
-            this.CBMonth.Items.AddRange(new object[] {
-            "All",
-            "Janurary",
-            "Feburary",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.CBMonth.Location = new System.Drawing.Point(16, 62);
-            this.CBMonth.Margin = new System.Windows.Forms.Padding(4);
-            this.CBMonth.Name = "CBMonth";
-            this.CBMonth.Size = new System.Drawing.Size(317, 24);
-            this.CBMonth.TabIndex = 6;
-            this.CBMonth.SelectedIndexChanged += new System.EventHandler(this.CBMonth_SelectedIndexChanged);
+            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(3, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(111, 25);
+            this.comboBox1.TabIndex = 1;
             // 
-            // CmdSearchClear
+            // comboBox2
             // 
-            this.CmdSearchClear.Location = new System.Drawing.Point(255, 88);
-            this.CmdSearchClear.Margin = new System.Windows.Forms.Padding(4);
-            this.CmdSearchClear.Name = "CmdSearchClear";
-            this.CmdSearchClear.Size = new System.Drawing.Size(22, 24);
-            this.CmdSearchClear.TabIndex = 7;
-            this.CmdSearchClear.Text = "X";
-            this.CmdSearchClear.UseVisualStyleBackColor = true;
-            this.CmdSearchClear.Click += new System.EventHandler(this.CmdSearchClear_Click);
+            this.comboBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(115, 3);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(113, 25);
+            this.comboBox2.TabIndex = 2;
+            // 
+            // CmdAdvSearch
+            // 
+            this.CmdAdvSearch.BackColor = System.Drawing.SystemColors.Window;
+            this.CmdAdvSearch.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdAdvSearch.Location = new System.Drawing.Point(162, 29);
+            this.CmdAdvSearch.Name = "CmdAdvSearch";
+            this.CmdAdvSearch.Size = new System.Drawing.Size(66, 25);
+            this.CmdAdvSearch.TabIndex = 3;
+            this.CmdAdvSearch.Text = "Options";
+            this.CmdAdvSearch.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox1.Location = new System.Drawing.Point(3, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(159, 25);
+            this.textBox1.TabIndex = 4;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 409);
-            this.Controls.Add(this.CmdSearchClear);
-            this.Controls.Add(this.CBMonth);
-            this.Controls.Add(this.MainPanel);
-            this.Controls.Add(this.CmdFilter);
-            this.Controls.Add(this.TxtSearchResults);
-            this.Controls.Add(this.CmbDirectories);
-            this.Controls.Add(this.LBJobs);
+            this.ClientSize = new System.Drawing.Size(642, 435);
+            this.Controls.Add(this.SCMain);
             this.Controls.Add(this.MS);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MS;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -337,29 +307,26 @@
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.MS.ResumeLayout(false);
             this.MS.PerformLayout();
+            this.SCMain.Panel1.ResumeLayout(false);
+            this.SCMain.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SCMain)).EndInit();
+            this.SCMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button CmdFilter;
         private System.Windows.Forms.MenuStrip MS;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        public System.Windows.Forms.ListBox LBJobs;
-        public System.Windows.Forms.ComboBox CmbDirectories;
-        public System.Windows.Forms.TextBox TxtSearchResults;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jobToolStripMenuItem;
-        public System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deadlineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem monthyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
-        public System.Windows.Forms.ComboBox CBMonth;
-        private System.Windows.Forms.Button CmdSearchClear;
         private System.Windows.Forms.ToolStripMenuItem testingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testEMailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem makeASuggestionToolStripMenuItem;
@@ -370,6 +337,12 @@
         private System.Windows.Forms.ToolStripMenuItem refreshJobsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem showJobInformationV2ToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer SCMain;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button CmdAdvSearch;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

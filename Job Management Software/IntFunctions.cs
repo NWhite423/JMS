@@ -18,7 +18,7 @@ namespace JMS
         //Updated 12-22-18 - has catch
         public static void OpenFileInfo(UC.MainWindow window, Job job)
         {
-            try
+            /*try
             {
                 window.CurrentJob = job;
                 Variables.JobIndex[0] = IntVariables.MainForm.CmbDirectories.SelectedIndex;
@@ -134,7 +134,7 @@ namespace JMS
             } catch (Exception ex)
             {
                 Functions.ProduceErrorReport(ex);
-            }
+            }*/
         }
 
         //Updated 12-22-18 - has catch
@@ -164,7 +164,7 @@ namespace JMS
         //Updated 12-22-18 - has catch
         public static void InitializeVariables()
         {
-            try
+            /*try
             {
                 Variables.WorkDir = JMSFunctions.AppSettings.Default.WorkDir;
                 Variables.UserName = JMSFunctions.AppSettings.Default.UserName;
@@ -187,7 +187,7 @@ namespace JMS
             catch (Exception ex)
             {
                 Functions.ProduceErrorReport(ex);
-            }
+            }*/
             
         }
 

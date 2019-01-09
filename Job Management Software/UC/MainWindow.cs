@@ -129,7 +129,7 @@ namespace JMS.UC
         //Updated 12-22-18
         private void CmdRemove_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you wish to remove this job from JMS?\n\nThe folder will be moved to a backup location and you will not be able to reference this job through JMS", "Are you sure?", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
+            /*if (MessageBox.Show("Are you sure you wish to remove this job from JMS?\n\nThe folder will be moved to a backup location and you will not be able to reference this job through JMS", "Are you sure?", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
             {
                 Job job = Variables.Job;
 
@@ -149,7 +149,7 @@ namespace JMS.UC
                 File.WriteAllLines(Variables.CurrentDir + @"\index.txt", file );
                 Variables.Jobs.Remove(job);
                 IntVariables.MainForm.LBJobs.Refresh();
-            }
+            }*/
         }
 
         //Updated 12-22-18

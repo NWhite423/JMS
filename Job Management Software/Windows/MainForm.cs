@@ -22,7 +22,7 @@ namespace JMS
         //Updated 12-22-18
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Determine if a drive has been selected
+            /*//Determine if a drive has been selected
             if (JMSFunctions.AppSettings.Default.WorkDir.Equals(""))
             {
                 //If no, it is assumed first run. Do all this.
@@ -88,20 +88,20 @@ namespace JMS
 
 
             //Show window
-            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Normal;*/
         }
 
         //Updated 12-22-18
         private void CmbDirectories_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CBMonth.SelectedIndex = 0;
-            IntFunctions.PopulateJobList(CmbDirectories.SelectedIndex, CBMonth.SelectedIndex);
+            /*CBMonth.SelectedIndex = 0;
+            IntFunctions.PopulateJobList(CmbDirectories.SelectedIndex, CBMonth.SelectedIndex);*/
         }
 
         //Updated 12-22-18
         private void JobToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LandingForm form = new LandingForm();
+            /*LandingForm form = new LandingForm();
             DialogResult result = form.ShowDialog();
 
             //Job form closed
@@ -145,13 +145,13 @@ namespace JMS
                     LBJobs.Refresh();
                     //Variables.Jobs.Add(Variables.CurrentJobs[Variables.CurrentJobs.Count-1]);
                 }
-            }
+            }*/
         }
 
         //Updated 12-22-18
         private void LBJobs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Do not execute if the MainForm is not the focused form
+            /*//Do not execute if the MainForm is not the focused form
             if (Form.ActiveForm != this) {
                 return;
             }
@@ -185,7 +185,7 @@ namespace JMS
                 Variables.JobTransition = false;
                 return;
             }
-            Variables.JobTransition = false;
+            Variables.JobTransition = false;*/
         }
 
         //Updated 12-22-18
@@ -217,10 +217,10 @@ namespace JMS
         //Updated 12-22-18
         private void CmdSearchClear_Click(object sender, EventArgs e)
         {
-            TxtSearchResults.Text = "";
+            /*TxtSearchResults.Text = "";
             CBMonth.SelectedIndex = 0;
             Variables.FilteredList = false;
-            IntFunctions.PopulateJobList(CmbDirectories.SelectedIndex, CBMonth.SelectedIndex);
+            IntFunctions.PopulateJobList(CmbDirectories.SelectedIndex, CBMonth.SelectedIndex);*/
         }
 
         //Updated 12-22-18
@@ -232,7 +232,7 @@ namespace JMS
         //Updated 12-22-18
         private void CBMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IntFunctions.PopulateJobList(CmbDirectories.SelectedIndex, CBMonth.SelectedIndex);
+            //IntFunctions.PopulateJobList(CmbDirectories.SelectedIndex, CBMonth.SelectedIndex);
         }
 
         private void TestEMailToolStripMenuItem_Click(object sender, EventArgs e)
@@ -265,13 +265,13 @@ namespace JMS
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
-            LBJobs.Size = new Size(LBJobs.Width, this.Height - 167);
+            //LBJobs.Size = new Size(LBJobs.Width, this.Height - 167);
         }
 
         private void RefreshJobsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             XML.RecompileJobs();
-            IntFunctions.PopulateJobList(CmbDirectories.SelectedIndex, CBMonth.SelectedIndex);
+            //IntFunctions.PopulateJobList(CmbDirectories.SelectedIndex, CBMonth.SelectedIndex);
         }
 
         private void ShowJobInformationV2ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -280,7 +280,7 @@ namespace JMS
             {
                 Dock = DockStyle.Fill
             };
-            MainPanel.Controls.Add(information);
+            //MainPanel.Controls.Add(information);
         }
     }
 }
