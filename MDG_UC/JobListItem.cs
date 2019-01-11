@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using JMS;
 using JMSFunctions;
+using System.Diagnostics;
 
 namespace MDG_UC
 {
@@ -19,7 +20,8 @@ namespace MDG_UC
             InitializeComponent();
         }
 
-        public static Job Job { get; set; }
+        [Description("The job object assigned to the control.")]
+        public Job Job { get; set; }
 
         [Description("The name of the job (folder name)."),Category("Data")]
         public string JobName
@@ -45,6 +47,11 @@ namespace MDG_UC
             {
                 LblAddress.Text = value;
             }
+        }
+
+        private void CmdOpen_Click(object sender, EventArgs e)
+        {
+            Process.Start(Job.Path);
         }
     }
 }

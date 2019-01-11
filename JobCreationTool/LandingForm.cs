@@ -12,6 +12,7 @@ using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
+using JMS.Variables;
 using JMSFunctions;
 
 namespace JobCreationTool
@@ -33,17 +34,17 @@ namespace JobCreationTool
         {
             try
             {
-                if (JMS.Variables.WorkDir.Equals(""))
+                if (Public.WorkDirectory.Equals(""))
                 {
                     MessageBox.Show("The specified directory does not exist.\n\n" + Properties.Settings.Default.WorkDir);
                     Application.Exit();
                 }
 
                 Customers = new List<Customer> { };
-                Variables.WorkDir = JMS.Variables.WorkDir;
+                Variables.WorkDir = Public.WorkDirectory;
                 Variables.SubDir = Properties.Settings.Default.SubDir.Cast<string>().ToList();
                 Functions.CreateJobNumber(this);
-                var employeesList = JMS.Variables.Employees;
+                var employeesList = Public.Employees;
 
                 foreach (string subDir in Variables.SubDir)
                 {
@@ -64,7 +65,7 @@ namespace JobCreationTool
             }
             catch (Exception ex)
             {
-                JMS.Functions.ProduceErrorReport(ex);
+                //JMS.Functions.ProduceErrorReport(ex);
             }
         }
 

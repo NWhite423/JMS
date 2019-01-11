@@ -26,7 +26,7 @@ namespace JMS
 
         private void CustomerManager_Load(object sender, EventArgs e)
         {
-            foreach (Customer customer in Variables.Customers)
+            /*foreach (Customer customer in Variables.Customers)
             {
                 TreeNode node = TVCustomers.Nodes.Add(customer.Name);
                 string details = String.Format("Name: {0}\n" +
@@ -47,7 +47,7 @@ namespace JMS
             UpdatesPending = false;
             Customers = Variables.Customers;
             ChildIndex = -1;
-            ParentIndex = -1;
+            ParentIndex = -1;*/
         }
 
         private void CmdSave_Click(object sender, EventArgs e)
@@ -431,7 +431,7 @@ namespace JMS
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             //No text in the text box
-            string contents = TxtSearch.Text;
+            /*string contents = TxtSearch.Text;
             if (contents.Count() == 0)
             {
                 Customers = Variables.Customers;
@@ -445,7 +445,7 @@ namespace JMS
                     Customers = Variables.Customers;
                     return;
                 }
-            }
+            }*/
         }
     }
 }

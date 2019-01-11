@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JMS;
+using JMS.Variables;
+using JMSFunctions;
 
 namespace JMSFunctions
 {
     public partial class CustomerLookup : Form
     {
-        internal List<Customer> customerList = JMS.Variables.Customers;
+        internal List<Customer> customerList = Public.Customers;
 
         public Customer Value { get; internal set; }
 
@@ -79,8 +81,8 @@ namespace JMSFunctions
             DialogResult result = cm.ShowDialog();
             if (result.Equals(DialogResult.OK))
             {
-                XML.SaveCustomers(cm.Customers, Variables.WorkDir + @"\JMS\customers.xml");
-                Variables.Customers = XML.CompileCustomers(Variables.WorkDir + @"\JMS\customers.xml").OrderBy(o => o.Name).ToList();
+                PublicFunctions.XML.SaveCustomers(cm.Customers, Public.WorkDirectory + @"\JMS\customers.xml");
+                Public.Customers = PublicFunctions.XML.CompileCustomers(Public.WorkDirectory + @"\JMS\customers.xml").OrderBy(o => o.Name).ToList();
                 customerList = cm.Customers;
                 TVCustomers.BeginUpdate();
                 TVCustomers.Nodes.Clear();

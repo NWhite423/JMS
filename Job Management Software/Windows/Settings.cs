@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JMS;
+using JMS.Variables;
+using JMSFunctions;
 
 namespace JMS
 {
@@ -23,10 +26,8 @@ namespace JMS
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            TxtWorkDir.Text = JMSFunctions.AppSettings.Default.WorkDir;
-            workDir = JMSFunctions.AppSettings.Default.WorkDir;
-            TxtUserName.Text = JMSFunctions.AppSettings.Default.UserName;
-            userName = JMSFunctions.AppSettings.Default.UserName;
+            TxtWorkDir.Text = Public.WorkDirectory;
+            workDir = Public.WorkDirectory;
         }
 
         private void TxtWorkDir_TextChanged(object sender, EventArgs e)
@@ -42,8 +43,6 @@ namespace JMS
 
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            JMSFunctions.AppSettings.Default.WorkDir = TxtWorkDir.Text;
-            JMSFunctions.AppSettings.Default.UserName = TxtUserName.Text;
             workDir = TxtWorkDir.Text;
             userName = TxtUserName.Text;
 

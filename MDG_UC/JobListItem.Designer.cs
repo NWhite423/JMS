@@ -66,6 +66,7 @@
             this.CmdOpen.TabIndex = 2;
             this.CmdOpen.Text = "Open";
             this.CmdOpen.UseVisualStyleBackColor = false;
+            this.CmdOpen.Click += new System.EventHandler(this.CmdOpen_Click);
             // 
             // CmdView
             // 

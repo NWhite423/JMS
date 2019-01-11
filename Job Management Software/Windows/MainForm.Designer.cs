@@ -1,6 +1,6 @@
 ﻿namespace JMS
 {
-    partial class MainForm
+    public partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -47,14 +47,14 @@
             this.monthyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testEMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showJobInformationV2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SCMain = new System.Windows.Forms.SplitContainer();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.CmdAddJob = new System.Windows.Forms.Button();
+            this.TxtAddressSearch = new System.Windows.Forms.TextBox();
             this.CmdAdvSearch = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CmbMonth = new System.Windows.Forms.ComboBox();
+            this.CmbYear = new System.Windows.Forms.ComboBox();
+            this.PnlJobs = new System.Windows.Forms.Panel();
             this.MS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SCMain)).BeginInit();
             this.SCMain.Panel1.SuspendLayout();
@@ -72,7 +72,7 @@
             this.MS.Location = new System.Drawing.Point(0, 0);
             this.MS.Name = "MS";
             this.MS.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.MS.Size = new System.Drawing.Size(642, 24);
+            this.MS.Size = new System.Drawing.Size(647, 24);
             this.MS.TabIndex = 4;
             this.MS.Text = "menuStrip1";
             // 
@@ -100,7 +100,6 @@
             this.refreshJobsToolStripMenuItem.Name = "refreshJobsToolStripMenuItem";
             this.refreshJobsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.refreshJobsToolStripMenuItem.Text = "Refresh Jobs";
-            this.refreshJobsToolStripMenuItem.Click += new System.EventHandler(this.RefreshJobsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -135,7 +134,6 @@
             this.jobToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.jobToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.jobToolStripMenuItem.Text = "Job";
-            this.jobToolStripMenuItem.Click += new System.EventHandler(this.JobToolStripMenuItem_Click);
             // 
             // databasesToolStripMenuItem
             // 
@@ -177,14 +175,12 @@
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
             this.salesToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.salesToolStripMenuItem.Text = "Sales";
-            this.salesToolStripMenuItem.Click += new System.EventHandler(this.SalesToolStripMenuItem_Click);
             // 
             // deadlineToolStripMenuItem
             // 
             this.deadlineToolStripMenuItem.Name = "deadlineToolStripMenuItem";
             this.deadlineToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.deadlineToolStripMenuItem.Text = "Deadline";
-            this.deadlineToolStripMenuItem.Click += new System.EventHandler(this.DeadlineToolStripMenuItem_Click);
             // 
             // monthyToolStripMenuItem
             // 
@@ -201,99 +197,113 @@
             // testingToolStripMenuItem
             // 
             this.testingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.testEMailToolStripMenuItem,
             this.showJobInformationV2ToolStripMenuItem});
             this.testingToolStripMenuItem.Name = "testingToolStripMenuItem";
             this.testingToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.testingToolStripMenuItem.Text = "Testing";
-            // 
-            // testEMailToolStripMenuItem
-            // 
-            this.testEMailToolStripMenuItem.Name = "testEMailToolStripMenuItem";
-            this.testEMailToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.testEMailToolStripMenuItem.Text = "Test E-Mail";
-            this.testEMailToolStripMenuItem.Visible = false;
-            this.testEMailToolStripMenuItem.Click += new System.EventHandler(this.TestEMailToolStripMenuItem_Click);
             // 
             // showJobInformationV2ToolStripMenuItem
             // 
             this.showJobInformationV2ToolStripMenuItem.Name = "showJobInformationV2ToolStripMenuItem";
             this.showJobInformationV2ToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.showJobInformationV2ToolStripMenuItem.Text = "Show Job Information V2";
-            this.showJobInformationV2ToolStripMenuItem.Click += new System.EventHandler(this.ShowJobInformationV2ToolStripMenuItem_Click);
             // 
             // SCMain
             // 
             this.SCMain.BackColor = System.Drawing.SystemColors.Window;
+            this.SCMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SCMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SCMain.Location = new System.Drawing.Point(0, 24);
             this.SCMain.Name = "SCMain";
             // 
             // SCMain.Panel1
             // 
-            this.SCMain.Panel1.Controls.Add(this.textBox1);
+            this.SCMain.Panel1.AutoScroll = true;
+            this.SCMain.Panel1.Controls.Add(this.CmdAddJob);
+            this.SCMain.Panel1.Controls.Add(this.TxtAddressSearch);
             this.SCMain.Panel1.Controls.Add(this.CmdAdvSearch);
-            this.SCMain.Panel1.Controls.Add(this.comboBox2);
-            this.SCMain.Panel1.Controls.Add(this.comboBox1);
-            this.SCMain.Panel1.Controls.Add(this.panel1);
-            this.SCMain.Size = new System.Drawing.Size(642, 411);
-            this.SCMain.SplitterDistance = 230;
+            this.SCMain.Panel1.Controls.Add(this.CmbMonth);
+            this.SCMain.Panel1.Controls.Add(this.CmbYear);
+            this.SCMain.Panel1.Controls.Add(this.PnlJobs);
+            this.SCMain.Panel1.SizeChanged += new System.EventHandler(this.SCMain_Panel1_SizeChanged);
+            this.SCMain.Panel1MinSize = 250;
+            // 
+            // SCMain.Panel2
+            // 
+            this.SCMain.Panel2.AutoScroll = true;
+            this.SCMain.Size = new System.Drawing.Size(647, 470);
+            this.SCMain.SplitterDistance = 250;
             this.SCMain.TabIndex = 5;
             // 
-            // panel1
+            // CmdAddJob
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.CmdAddJob.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CmdAddJob.Location = new System.Drawing.Point(170, 442);
+            this.CmdAddJob.Name = "CmdAddJob";
+            this.CmdAddJob.Size = new System.Drawing.Size(75, 23);
+            this.CmdAddJob.TabIndex = 5;
+            this.CmdAddJob.Text = "Create";
+            this.CmdAddJob.UseVisualStyleBackColor = true;
+            // 
+            // TxtAddressSearch
+            // 
+            this.TxtAddressSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(3, 56);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(225, 352);
-            this.panel1.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(111, 25);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(115, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(113, 25);
-            this.comboBox2.TabIndex = 2;
+            this.TxtAddressSearch.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtAddressSearch.Location = new System.Drawing.Point(3, 29);
+            this.TxtAddressSearch.Name = "TxtAddressSearch";
+            this.TxtAddressSearch.Size = new System.Drawing.Size(178, 25);
+            this.TxtAddressSearch.TabIndex = 4;
             // 
             // CmdAdvSearch
             // 
+            this.CmdAdvSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CmdAdvSearch.BackColor = System.Drawing.SystemColors.Window;
             this.CmdAdvSearch.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdAdvSearch.Location = new System.Drawing.Point(162, 29);
+            this.CmdAdvSearch.Location = new System.Drawing.Point(181, 29);
             this.CmdAdvSearch.Name = "CmdAdvSearch";
             this.CmdAdvSearch.Size = new System.Drawing.Size(66, 25);
             this.CmdAdvSearch.TabIndex = 3;
             this.CmdAdvSearch.Text = "Options";
             this.CmdAdvSearch.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // CmbMonth
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(3, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 25);
-            this.textBox1.TabIndex = 4;
+            this.CmbMonth.BackColor = System.Drawing.SystemColors.Window;
+            this.CmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMonth.FormattingEnabled = true;
+            this.CmbMonth.Location = new System.Drawing.Point(115, 3);
+            this.CmbMonth.Name = "CmbMonth";
+            this.CmbMonth.Size = new System.Drawing.Size(113, 25);
+            this.CmbMonth.TabIndex = 2;
+            // 
+            // CmbYear
+            // 
+            this.CmbYear.BackColor = System.Drawing.SystemColors.Window;
+            this.CmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbYear.FormattingEnabled = true;
+            this.CmbYear.Location = new System.Drawing.Point(3, 3);
+            this.CmbYear.Name = "CmbYear";
+            this.CmbYear.Size = new System.Drawing.Size(111, 25);
+            this.CmbYear.TabIndex = 1;
+            // 
+            // PnlJobs
+            // 
+            this.PnlJobs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PnlJobs.BackColor = System.Drawing.SystemColors.Window;
+            this.PnlJobs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PnlJobs.Location = new System.Drawing.Point(3, 56);
+            this.PnlJobs.Name = "PnlJobs";
+            this.PnlJobs.Size = new System.Drawing.Size(243, 385);
+            this.PnlJobs.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 435);
+            this.ClientSize = new System.Drawing.Size(647, 494);
             this.Controls.Add(this.SCMain);
             this.Controls.Add(this.MS);
             this.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -304,7 +314,6 @@
             this.Text = "JMS";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.MS.ResumeLayout(false);
             this.MS.PerformLayout();
             this.SCMain.Panel1.ResumeLayout(false);
@@ -328,7 +337,6 @@
         private System.Windows.Forms.ToolStripMenuItem monthyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testEMailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem makeASuggestionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databasesToolStripMenuItem;
@@ -338,11 +346,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem showJobInformationV2ToolStripMenuItem;
         private System.Windows.Forms.SplitContainer SCMain;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button CmdAdvSearch;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.Panel PnlJobs;
+        public System.Windows.Forms.TextBox TxtAddressSearch;
+        public System.Windows.Forms.Button CmdAdvSearch;
+        public System.Windows.Forms.ComboBox CmbMonth;
+        public System.Windows.Forms.ComboBox CmbYear;
+        public System.Windows.Forms.Button CmdAddJob;
     }
 }
 

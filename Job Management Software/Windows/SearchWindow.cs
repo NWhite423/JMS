@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JMS.Variables;
 
 namespace JMS
 {
@@ -29,10 +30,10 @@ namespace JMS
             DateTimeTo.Value = DateTime.Now;
             DateTimeDue.Value = DateTime.Now;
 
-            Employees = Variables.Employees;
-            Jobs = Variables.AllJobs;
+            Employees = Public.Employees;
+            Jobs = Public.AllJobs;
 
-            foreach (Employee employee in Variables.Employees)
+            foreach (Employee employee in Public.Employees)
             {
                 CBWorkers.Items.Add(employee.Name);
             }

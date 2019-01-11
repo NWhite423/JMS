@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using JMSFunctions;
+using JMS;
+using JMS.Variables;
 
 namespace JobCreationTool
 {
@@ -121,10 +123,10 @@ namespace JobCreationTool
             string name = form.TxtJobName.Text;
             string addressLine1 = form.TxtAddressLine1.Text;
             string addressLine2 = form.TxtAddressLine2.Text;
-            List<string> tasks = JMS.Functions.GetCheckedItems(form.CBTasks);
-            List<string> subfolders = JMS.Functions.GetCheckedItems(form.CBList);
+            List<string> tasks = PublicFunctions.GetCheckedItems(form.CBTasks);
+            List<string> subfolders = PublicFunctions.GetCheckedItems(form.CBList);
             List<Customer> customers = form.Customers;
-            List<string> employees = JMS.Functions.GetCheckedItems(form.CBEmployees);
+            List<string> employees = PublicFunctions.GetCheckedItems(form.CBEmployees);
 
             //Check for empty items
             if (name.Equals(""))
@@ -194,8 +196,8 @@ namespace JobCreationTool
             job.DateEdited = DateTime.Now.ToShortDateString();
             job.TimeCreated = DateTime.Now.ToString("HH:mm:ss");
             job.TimeEdited = DateTime.Now.ToString("HH:mm:ss");
-            job.CreatedBy = JMSFunctions.AppSettings.Default.UserName;
-            job.EditedBy = JMSFunctions.AppSettings.Default.UserName;
+            job.CreatedBy = Public.LoginInformation.DisplayName;
+            job.EditedBy = Public.LoginInformation.DisplayName;
             job.Status = "Created";
             job.Employees = new List<Employee> { };
 
@@ -203,7 +205,7 @@ namespace JobCreationTool
             {
                 Debug.WriteLine(employee);
                 string employeename = employee.Split('(')[0].TrimEnd(' ');
-                foreach (Employee employeeItem in JMS.Variables.Employees)
+                foreach (Employee employeeItem in Public.Employees)
                 {
                     if (employeeItem.Name.Equals(employeename))
                     {
@@ -225,7 +227,7 @@ namespace JobCreationTool
                 "Employees: {5}\n" +
                 "\n" +
                 "Is this information correct?",
-                job.Name, job.Address, job.Path, JMS.Functions.ConvertListToString(job.Tasks), JMS.Functions.ConvertListToString(job.Folders), JMS.Functions.ConvertListToString(employees));
+                job.Name, job.Address, job.Path, PublicFunctions.ConvertListToString(job.Tasks), PublicFunctions.ConvertListToString(job.Folders), PublicFunctions.ConvertListToString(employees));
             DialogResult result = MessageBox.Show(verify, "Verify Information", MessageBoxButtons.YesNo);
             if (result.Equals(DialogResult.Yes))
             {
@@ -239,7 +241,7 @@ namespace JobCreationTool
         //Updated 12-22-18
         public static void CreateFolder(Job job, LandingForm form)
         {
-            //If there is a folder that matches another job, exit to avoid conflict.
+            /*//If there is a folder that matches another job, exit to avoid conflict.
             if (Directory.Exists(job.Path))
             {
                 MessageBox.Show("A folder with the specified name already exists. Please enter a different name.", "ERROR");
@@ -273,7 +275,7 @@ namespace JobCreationTool
 
             
 
-            form.DialogResult = DialogResult.OK;
+            form.DialogResult = DialogResult.OK;*/
         }
     }
 }

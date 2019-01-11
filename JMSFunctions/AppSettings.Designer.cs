@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JMSFunctions {
+namespace JMS {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,25 +25,13 @@ namespace JMSFunctions {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WorkDir {
+        [global::System.Configuration.DefaultSettingValueAttribute("P:\\")]
+        public string WorkDirectory {
             get {
-                return ((string)(this["WorkDir"]));
+                return ((string)(this["WorkDirectory"]));
             }
             set {
-                this["WorkDir"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string UserName {
-            get {
-                return ((string)(this["UserName"]));
-            }
-            set {
-                this["UserName"] = value;
+                this["WorkDirectory"] = value;
             }
         }
         
@@ -56,27 +44,6 @@ namespace JMSFunctions {
             }
             set {
                 this["DevMode"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>Boundary</string>
-  <string>Topographic</string>
-  <string>Pre-Construction</string>
-  <string>Construction</string>
-  <string>As-Built</string>
-  <string>ALTA/NSPS</string>
-  <string>Morgage</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection Tasks {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Tasks"]));
-            }
-            set {
-                this["Tasks"] = value;
             }
         }
     }

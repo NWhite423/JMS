@@ -1,27 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JMSFunctions" GeneratedClassName="AppSettings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JMS" GeneratedClassName="AppSettings">
   <Profiles />
   <Settings>
-    <Setting Name="WorkDir" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="UserName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="WorkDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">P:\</Value>
     </Setting>
     <Setting Name="DevMode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="Tasks" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;Boundary&lt;/string&gt;
-  &lt;string&gt;Topographic&lt;/string&gt;
-  &lt;string&gt;Pre-Construction&lt;/string&gt;
-  &lt;string&gt;Construction&lt;/string&gt;
-  &lt;string&gt;As-Built&lt;/string&gt;
-  &lt;string&gt;ALTA/NSPS&lt;/string&gt;
-  &lt;string&gt;Morgage&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>
 </SettingsFile>
